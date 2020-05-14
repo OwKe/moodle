@@ -1,28 +1,23 @@
-                                 .-..-.
-   _____                         | || |
-  /____/-.---_  .---.  .---.  .-.| || | .---.
-  | |  _   _  |/  _  \/  _  \/  _  || |/  __ \
-  * | | | | | || |_| || |_| || |_| || || |___/
-    |_| |_| |_|\_____/\_____/\_____||_|\_____)
+## Create Database
 
-Moodle - the world's open source learning platform
+CREATE DATABASE moodle DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-Moodle <https://moodle.org> is a learning platform designed to provide
-educators, administrators and learners with a single robust, secure and
-integrated system to create personalised learning environments.
+SET GLOBAL innodb_file_format = barracuda
+SET GLOBAL innodb_large_prefix = 'on'
 
-You can download Moodle <https://download.moodle.org> and run it on your own
-web server, ask one of our Moodle Partners <https://moodle.com/partners/> to
-assist you, or have a MoodleCloud site <https://moodle.com/cloud/> set up for
-you.
+##Create Config.php
 
-Moodle is widely used around the world by universities, schools, companies and
-all manner of organisations and individuals.
+Change $CFG->prefix    = 'mdl_';	 	To $CFG->prefix    = 'mdl2_';
+As original mdl2 install tables will be deleted.
 
-Moodle is provided freely as open source software, under the GNU General Public
-License <https://docs.moodle.org/dev/License>.
+## Install Moodle
 
-Moodle is written in PHP and JavaScript and uses an SQL database for storing
-the data.
+Install moodle through localhost in browser just using any old details as these will be deleted.
 
-See <https://docs.moodle.org> for details of Moodle's many features.
+## Sync with Live site
+
+To update the database dump out the whole of the live database into a single  SQL file.
+Using DataGrip go to File > Open and select your SQL dump file. Then right click the tab for the file to get the context menu, and select "Run” option. Select the local database.
+Amend the config.php file to the default $CFG->prefix = 'mdl_'; So that it gets the new database tables.
+Delete the old 'mdl2_’ tables.
+Update private_html/moodledata folder from the server.
