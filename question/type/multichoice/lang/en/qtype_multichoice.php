@@ -73,3 +73,7 @@ $string['shuffleanswers_desc'] = 'Whether options should be randomly shuffled fo
 $string['shuffleanswers_help'] = 'If enabled, the order of the answers is randomly shuffled for each attempt, provided that "Shuffle within questions" in the activity settings is also enabled.';
 $string['singleanswer'] = 'Choose one answer.';
 $string['toomanyselected'] = 'You have selected too many options.';
+
+$string['layout'] = 'Answer layout';
+$string['layoutvertical'] = 'Vertical';
+$string['layouthorizontal'] = 'Horizontal';

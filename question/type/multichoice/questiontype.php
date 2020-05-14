@@ -204,11 +204,8 @@ class qtype_multichoice extends question_type {
         parent::initialise_question_instance($question, $questiondata);
         $question->shuffleanswers = $questiondata->options->shuffleanswers;
         $question->answernumbering = $questiondata->options->answernumbering;
-        if (!empty($questiondata->options->layout)) {
-            $question->layout = $questiondata->options->layout;
-        } else {
-            $question->layout = qtype_multichoice_single_question::LAYOUT_VERTICAL;
-        }
+        $question->layout = $questiondata->options->layout;
+
         $this->initialise_combined_feedback($question, $questiondata, true);
 
         $this->initialise_question_answers($question, $questiondata, false);

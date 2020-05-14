@@ -21,3 +21,16 @@ Using DataGrip go to File > Open and select your SQL dump file. Then right click
 Amend the config.php file to the default $CFG->prefix = 'mdl_'; So that it gets the new database tables.
 Delete the old 'mdl2_’ tables.
 Update private_html/moodledata folder from the server.
+
+## New Changes 
+
+git checkout -b horizontal_multi-MOODLE_38_STABLE
+
+git add .
+
+git commit -m '....'
+
+##### Push changes to horizontal_multi-MOODLE_23_STABLE
+git push origin horizontal_multi-MOODLE_23_STABLE
+
+

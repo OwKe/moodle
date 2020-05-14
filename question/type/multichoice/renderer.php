@@ -140,7 +140,13 @@ abstract class qtype_multichoice_renderer_base extends qtype_with_combined_feedb
         $result .= html_writer::start_tag('div', array('class' => 'ablock'));
         $result .= html_writer::tag('div', $this->prompt(), array('class' => 'prompt'));
 
-        $result .= html_writer::start_tag('div', array('class' => 'answer'));
+        $layout_classes = [
+            0 => 'vertical',
+            1 => 'horizontal'
+        ];
+
+        $result .= html_writer::start_tag('div', array('class' => 'answer '.$layout_classes[$question->layout]));
+
         foreach ($radiobuttons as $key => $radio) {
             $result .= html_writer::tag('div', $radio . ' ' . $feedbackimg[$key] . $feedback[$key],
                     array('class' => $classes[$key])) . "\n";
