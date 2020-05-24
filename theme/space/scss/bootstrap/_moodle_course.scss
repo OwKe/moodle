@@ -465,6 +465,7 @@ table {
 .course-content ul.topics,
 .course-content ul.weeks {
     padding: 0;
+    list-style: none;
 
     li.section {
         padding-top: $spacer;
@@ -1037,11 +1038,12 @@ span.editinstructions {
 }
 
 .course_category_tree .category > .info > .categoryname {
+    display: block;
     background-image: none;
     margin: 2px 0;
 
     font-size: .85 * $font-size-base;
-    line-height: 1.5;
+    line-height: 1.3;
     color: $body-color;
 
     a {
@@ -1069,11 +1071,11 @@ span.editinstructions {
       }
     }
 }
-/* rtl:raw:
-.course_category_tree .category > .info > .categoryname {
-    background-image:url([[pix:moodle|t/collapsed_empty_rtl]]);
+
+.course_category_tree .category.with_children.collapsed>.info>.categoryname {
+    background-image: none!important;
 }
- */
+
 .course_category_tree .category.with_children > .info > .categoryname {
     position: relative;
     cursor: pointer;
@@ -1462,6 +1464,7 @@ span.editinstructions {
 
         .pair-value select {
             max-width: 100%;
+            margin: 5px 0;
         }
     }
 

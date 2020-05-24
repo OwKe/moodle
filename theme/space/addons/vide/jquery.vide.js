@@ -34,7 +34,7 @@
     posterType: 'detect',
     resizing: true,
     bgColor: 'transparent',
-    className: ''
+    className: 'vide-container'
   };
 
   /**
@@ -237,7 +237,7 @@
       .addClass(settings.className)
       .css({
         position: 'absolute',
-        'z-index': -1,
+        'z-index': 0,
         top: 0,
         left: 0,
         bottom: 0,
@@ -327,7 +327,7 @@
     $video.css({
       margin: 'auto',
       position: 'absolute',
-      'z-index': -1,
+      'z-index': 0,
       top: position.y,
       left: position.x,
       '-webkit-transform': 'translate(-' + position.x + ', -' + position.y + ')',

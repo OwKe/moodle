@@ -6,7 +6,7 @@
 }}
 <div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex {{#hiddensidebar}}closed{{/hiddensidebar}}">
 
-  <button type="button" class="sidebar-btn--close" data-side="left"><i class="fas fa-times"></i></button>
+  <button type="button" class="sidebar-btn--close" data-side="left" aria-label="Sidebar Close Button"><i class="fas fa-times"></i></button>
 
     {{#showsidebarlogo}}
     <div class="c-logo text-center">
@@ -29,7 +29,6 @@
 
           <h1 class="{{#customlogosidebar}}hidden{{/customlogosidebar}}{{^customlogosidebar}}{{# output.should_display_navbar_logo }}hidden{{/ output.should_display_navbar_logo }}{{/customlogosidebar}} site-name text-center">{{{ sitename }}}</h1>
         
-
       </a>
     </div>
     {{/showsidebarlogo}} 

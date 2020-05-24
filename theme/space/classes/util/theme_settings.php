@@ -164,7 +164,7 @@ class theme_settings {
        $templatecontext = [];
 
        $slideritems = [
-        'sliderenabled', 'heroslidershadow', 'sliderwithouttext', 'sliderfwenabled', 'sliderclickable', 'sliderintervalenabled', 'sliderinterval', 'rtlslider'
+        'sliderenabled', 'heroslidershadow', 'sliderfwenabled', 'sliderclickable', 'sliderintervalenabled', 'sliderinterval', 'rtlslider'
        ];
    
        foreach ($slideritems as $setting) {

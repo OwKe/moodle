@@ -30,6 +30,11 @@
   #page-navbar, .page-title {
     @include media-breakpoint-only(sm) {
       margin: 0 auto;
+
+      div {
+        display: block!important;
+        width: 100%;
+      }
     }
   }
 

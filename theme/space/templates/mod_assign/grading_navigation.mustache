@@ -32,19 +32,19 @@
 }}
 
 <div class="container-fluid">
-  <div data-region="grading-navigation" class="no-gutters row">
+  <div data-region="grading-navigation" class="no-gutters row no-gutters">
 
       {{!
           There are three chunks, which appear side-by-side at large screen sizes.
           A) Assignment info, which has 3 rows:
       }}
 
-      <div data-region="assignment-info" class="col-12 row no-gutters">
+      <div data-region="assignment-info" class="col-12 row no-gutters px-0">
 
           {{!
               Row 1) course name & link.
           }}
-          <div class="col-12">
+          <div class="col-12 px-0">
             <a class="btn btn-primary btn-sm" href="{{config.wwwroot}}/course/view.php?id={{courseid}}" title="{{{coursename}}}">{{{coursename}}}</a>
             {{!
                 Row 2) Assignment name & link, & edit settings.
@@ -78,7 +78,7 @@
 
       </div>
 
-      <div class="col-12 row no-gutters">
+      <div class="col-12 row no-gutters px-0">
         {{!
             B) Current user name and info.
         }}

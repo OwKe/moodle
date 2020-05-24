@@ -1,7 +1,7 @@
-{{#herovideoenabled}}
-<script src="{{siteurl}}/theme/space/addons/vide/jquery.vide.js"></script>
-{{/herovideoenabled}}
-
+{{#js}}
+require(['jquery', '{{siteurl}}/theme/space/addons/overlayscrollbars/OverlayScrollbars.min.js'], function($) {
+});
+{{/js}}
 <script>
   document.addEventListener("DOMContentLoaded", function() {
   //The first argument are the elements to which the plugin shall be initialized
@@ -17,7 +17,7 @@
         touchSupport     : true
       }
   });
-  OverlayScrollbars(document.querySelectorAll('.region-main-settings-menu .dropdown-menu'),
+  OverlayScrollbars(document.querySelectorAll('.region-main-settings-menu .dropdown-menu, .conversation-cotnent-container'),
   {scrollbars :
       {
         visibility       : "auto",
@@ -28,7 +28,7 @@
         touchSupport     : true
       }
   });
-  OverlayScrollbars(document.querySelectorAll('.s-courses .course-box-content-desc, .popover-region-content-container, .nav-tabs-container, .form-description pre, .accordion-nav-content'),
+  OverlayScrollbars(document.querySelectorAll('.s-block-11 .c-course-container .c-course-card-desc-content, .s-courses .course-box-content-desc, .popover-region-content-container, .form-description pre, .accordion-nav-content'),
   {scrollbars :
       {
         visibility       : "auto",
@@ -56,7 +56,6 @@ function stickyNavF() {
   }
 }
 window.onscroll = function() {stickyNavF()};
-
 </script>
 
 {{#js}}

@@ -1,6 +1,13 @@
 CHANGELOG
 Space Moodle Theme
 - - - -
+## [1.9.8] May 22, 2020
++ Messages App - Added Emoji Picker
++ Hero Video Bug Fixes
++ Added Demo Presets
++ Grade Module UI Improvements
++ RTL Improvements
+
 ## [1.9.7] May 15, 2020
 + Minor Bug fixes (JSON issue on the Settings page)
 

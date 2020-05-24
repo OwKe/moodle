@@ -419,8 +419,6 @@ defined('MOODLE_INTERNAL') || die();
 
     $string['siemaSlidersettings'] = 'Hero Slider';
     $string['sliderenabled'] = 'Enable slider';
-    $string['sliderwithouttext'] = 'Enable slider (only images)<br /><small>without a content inside each images</small>';
-    $string['sliderwithouttext_desc'] = 'If you want to have image slider fully responsive (width and height) and you don\'t have content inside.';
     $string['sliderenabled_desc'] = 'Enable a slider at the top of your home page';
     $string['sliderfwenabled'] = 'Full width slider';
     $string['sliderfwenabled_desc'] = 'Slider container will have full width instead of max-width: 1440px';
@@ -1248,7 +1246,7 @@ defined('MOODLE_INTERNAL') || die();
     $string['showfpblock12hr'] = 'Show Testimonials<br />Bottom separator';
     $string['showfpblock12hr_desc'] = '<hr class="mb-0 mt-4"/>';   
 
-    $string['hintro'] = '<div class="d-block text-center"><br /><br />Space Moodle Theme<br /><small>by Rosea Themes</small><br /><div class="badge badge-info">version 1.9.7</div>';
+    $string['hintro'] = '<div class="d-block text-center"><br /><br />Space Moodle Theme<br /><small>by Rosea Themes</small><br /><div class="badge badge-info">version 1.9.8</div>';
     $string['hintro_desc'] = '<div class="col-sm-12 col-md-8 my-sm-2 my-md-5 mx-auto"><a class="btn btn-secondary mb-1" href="https://docs.space.rosea.io" target="_blank"><i class="fas fa-book mr-2"></i>  Documentation</a>
     <a class="mx-2 mb-1 btn btn-secondary" href="https://themeforest.net/item/space-moodle-template/22579922/support" target="_blank"><i class="far fa-life-ring mr-2"></i>  Theme Support</a></div><hr /></div>';
 
@@ -1779,6 +1777,6 @@ defined('MOODLE_INTERNAL') || die();
 
     //HTML 
     $string['additionalheadhtml'] = '<span class="badge badge-danger mx-0 mb-2">Only for developers</span><br />Head HTML';
-    $string['additionalheadhtml_desc'] = 'Before </head>';
+    $string['additionalheadhtml_desc'] = 'Before the closing &#x3C;/head&#x3E; tag';
     $string['additionalfooterhtml'] = '<span class="badge badge-danger mx-0 mb-2">Only for developers</span><br />Footer HTML';
-    $string['additionalfooterhtml_desc'] = 'Before </body>';
+    $string['additionalfooterhtml_desc'] = 'Before the closing &#x3C;/body&#x3E; tag';

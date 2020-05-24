@@ -19,7 +19,6 @@
 
   <div class="siema-container {{#sliderfwenabled}}siema-container--fw{{/sliderfwenabled}}">
 
-      {{^sliderwithouttext}}
       <div class="siema">
       {{#slides}}
       {{#sliderclickable}}<a href="{{url}}">{{/sliderclickable}}
@@ -41,7 +40,6 @@
       {{#sliderclickable}}</a>{{/sliderclickable}}
       {{/slides}}
       </div>
-      {{/sliderwithouttext}}
 
       <button class="siema-prev prev"><i class="fas fa-chevron-left"></i></button>
       <button class="siema-next next"><i class="fas fa-chevron-right"></i></button>
@@ -69,7 +67,6 @@ prev.addEventListener('click', () => mySiema.prev());
 next.addEventListener('click', () => mySiema.next());
 
 {{#sliderintervalenabled}}setInterval(() => mySiema.next(), {{{ sliderinterval }}});{{/sliderintervalenabled}}
-
 </script>
 
 {{/sliderenabled}}
@@ -94,9 +91,9 @@ next.addEventListener('click', () => mySiema.next());
     </div>
     {{/herohtml}}
 
-    <img src="{{{ heroimg }}}" alt="" width="100%" class="c-hero-img img-fluid" />
-
     {{{ herohtml }}}
+
+    <img src="{{{ heroimg }}}" alt="" width="100%" class="c-hero-img img-fluid" />
 
   </div>
 

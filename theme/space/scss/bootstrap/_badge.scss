@@ -86,8 +86,8 @@
 .badge-info,
 .label-info,
 .label-default {
-  background-color: $theme-color-9;
-  color: $theme-color-3;
+  background-color: $theme-color-3;
+  color: $theme-color-9!important;
 }
 
 .badge-light {

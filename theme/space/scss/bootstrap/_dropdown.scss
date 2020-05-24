@@ -169,6 +169,7 @@
 
   .dropdown-item {
     min-width: max-content;
+    max-width: 260px;
     display: block;
     color: $dropdown-link-color;
     text-align: left;
@@ -202,6 +203,15 @@
   }
 
 }
+
+    .active-dropdown {
+      color: $dropdown-link-hover-color!important; // force styles for tables
+      @include gradient-bg($dropdown-link-hover-bg);
+      
+      .icon {
+        color: $dropdown-link-hover-color;
+      }  
+    }
 
     // Top menu - sub menus
     .dropdown-menu-light {

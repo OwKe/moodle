@@ -30,14 +30,11 @@
     }
 
     .header-button-group {
-        width: 100%;
-        display: inline-block;
-        margin-top: 1rem;
-        margin-left: 0;
+        margin: 0 10px;
 
         .btn {
             margin-bottom: 5px;
-            width: 50%;
+            width: max-content;
         }
     }
 
@@ -102,10 +99,6 @@
             }
         }
     }
-}
-
-.userprofile .profile_tree section:nth-child(1) .contentnode a {
-    color: $theme-color-4!important;
 }
 
 

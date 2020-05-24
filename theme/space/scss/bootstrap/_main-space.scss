@@ -290,7 +290,7 @@ a.btn
 
       z-index: 99999;
 
-      padding: 5px 30px 5px 40px;
+      padding: 5px 30px;
       background: $top-bar-bg;
       border-bottom: 1px solid $top-bar-border;
 
@@ -305,7 +305,7 @@ a.btn
 
         @include media-breakpoint-only(md) {
           width: 100%;
-          padding: 10px 20px;
+          padding: 10px 20px 10px 30px;
         }
       }
     }
@@ -1280,7 +1280,7 @@ a.btn
   .dropdown-toggle {
       font-size: $font-size-xs;
 
-      padding: 0.85rem 1.5rem 0.85rem 1rem;
+      padding: 0.85rem 1.5rem 0.85rem 1rem!important;
   }
 }
 
@@ -1512,9 +1512,11 @@ a.btn
   .submissiongraded,
   .submissioneditable,
   .timeremaining,
-  .submissionnotgraded {
-    margin-bottom: 0.5rem;
-    padding: 1rem;
+  .submissionnotgraded,
+  .gradingreminder
+  {
+    margin-bottom: 0.25rem;
+    padding: 10px;
     border-radius: $border-radius;
     font-size: $font-size-xs;
 
@@ -1532,7 +1534,7 @@ a.btn
   .released,
   .submissioneditable
   {
-    background-color: $theme-color-5!important;
+    background-color: $theme-color-9!important;
     margin-top: 1rem;
   }
 
@@ -1653,9 +1655,6 @@ a.btn
             margin-left: 0.25rem;
 
             position: relative;
-            top: -4px;
-
-            font-size: 11px;
             color: $drawer-nav-item-text-color;
             opacity: 0.7;
           }
@@ -1736,7 +1735,7 @@ a.btn
 
 /* mod user/index.php */
 .enrolusersbutton {
-  margin: 38px 0 10px!important;
+  margin: 37px 0 10px!important;
 }
 
 
@@ -2486,7 +2485,7 @@ a.btn
   margin: 0;
 
   position: fixed;
-  left: calc(50% - 215px);
+  left: calc(50% - 350px);
   bottom: 20px;
   z-index: 99998;
 
@@ -2499,15 +2498,6 @@ a.btn
 
   font-size: $font-size-sm;
   color: $gray-100;
-
-  #page-site-index & {
-  left: calc(50% - 350px);
-  @include media-breakpoint-between(sm, md) {
-    width: calc(100% - 40px);
-    max-width: calc(100% - 40px);
-    left: 20px;
-  }
-  }
 
   @include media-breakpoint-between(sm, md) {
       width: calc(100% - 40px);
@@ -3003,7 +2993,7 @@ a.btn
 
           position: relative;
 
-          @media (max-width: 1000px) {
+          @include media-breakpoint-only(lg) {
             flex-basis: calc(33.33333% - 30px);
           }
     
@@ -3080,7 +3070,7 @@ a.btn
         }
 
         .c-course-card-title {
-          font-size: $font-size-sm;
+          font-size: $font-size-base;
           font-weight: $font-weight-sm-bold;
           color: $body-color;
 
@@ -3099,8 +3089,14 @@ a.btn
         }
 
         .c-course-card-desc {
-          font-size: $font-size-xs;
+          font-size: $font-size-sm;
           color: $body-color-secondary;
+
+          .c-course-card-desc-content {
+            padding-right: 20px;
+            height: $course-card-desc-height;
+          }
+          
         }
 
         .c-course-icons {

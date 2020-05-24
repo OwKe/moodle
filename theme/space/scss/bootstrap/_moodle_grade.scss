@@ -581,6 +581,17 @@ div.singleselect  {
   margin: 0!important;
 }
 
+.path-mod-assign [data-region="grade-panel"] h3 {
+  font-size: $font-size-base;
+  margin: 0 0 1rem;
+}
+
+.path-mod-assign {
+  hr {
+    margin: 10px 0;
+  }
+}
+
 @include media-breakpoint-between(sm,md) {
   .path-grade-report-grader .gradeparent {
     overflow: scroll;
@@ -647,7 +658,7 @@ div.singleselect  {
 
 .gradingform_rubric .criteria {
   display: table;
-  min-width: 100%;
+  min-width: max-content;
 }
 
 .gradingform_rubric {
@@ -688,3 +699,31 @@ div.singleselect  {
 .path-grade-report-grader .gradeparent .floating {
   max-width: 320px;
 }
+
+.path-mod-assign [data-region="user-selector"] .form-autocomplete-suggestions {
+  margin-left: 0;
+}
+
+.assignfeedback_editpdf_widget .toolbar_group {
+  float: none;
+}
+
+.gradereport_history_usp {
+
+  .usp-checkbox {
+    padding: 7px 6px 0 6px;
+  }
+
+  .usp-user {
+    padding: 5px;
+  
+    .extrafields {
+      font-size: $font-size-xs;
+    }
+  }
+
+  .usp-picture {
+    margin: 7px 15px 7px 0px;
+    padding: 0;
+  }
+} 

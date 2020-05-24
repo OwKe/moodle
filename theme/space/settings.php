@@ -60,7 +60,9 @@ if ($ADMIN->fulltree) {
             $name = 'theme_space/preset';
             $title = get_string('preset', 'theme_space');
             $description = get_string('preset_desc', 'theme_space');
-            $default = 'default.scss';
+            $choices['default.scss'] = 'Demo #1';
+            $choices['demo2.scss'] = 'Demo #2';
+            $choices['demo3.scss'] = 'Demo #3';
 
             $context = context_system::instance();
             $fs = get_file_storage();
@@ -71,7 +73,9 @@ if ($ADMIN->fulltree) {
             $choices[$file->get_filename()] = $file->get_filename();
             }
             // These are the built in presets.
-            $choices['default.scss'] = 'default.scss';
+            $choices['default.scss'] = 'Demo #1';
+            $choices['demo2.scss'] = 'Demo #2';
+            $choices['demo3.scss'] = 'Demo #3';
 
             $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
             $setting->set_updatedcallback('theme_reset_all_caches');
@@ -1442,12 +1446,6 @@ if ($ADMIN->fulltree) {
               $description = get_string('heroslidershadow_desc', 'theme_space');
               $default = 1;
               $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-              $page->add($setting);
-
-              $name = 'theme_space/sliderwithouttext';
-              $title = get_string('sliderwithouttext', 'theme_space');
-              $description = get_string('sliderwithouttext_desc', 'theme_space');
-              $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
               $page->add($setting);
 
               $name = 'theme_space/sliderfwenabled';

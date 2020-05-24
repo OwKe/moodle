@@ -1137,7 +1137,7 @@ span + .no-overflow {
         .moodle-core-dragdrop-draghandle {
             position: absolute;
             top: 15px;
-            left: 15px;
+            left: 0;
 
             width: 42px;
             height: calc(100% - 30px);
@@ -1425,4 +1425,8 @@ span + .no-overflow {
           font-size: $font-size-xs;
           font-weight: $font-size-sm;
       }
+  }
+
+  .path-admin-tool-lp [data-region="competencylinktree"] ul li>span {
+      padding-left: 10px;
   }

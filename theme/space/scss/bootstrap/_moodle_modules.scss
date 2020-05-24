@@ -930,7 +930,7 @@ $popout-header-height: 4rem;
 
 .path-mod-assign [data-region="grade-panel"] {
     padding-top: $spacer;
-    top: 200px;
+    top: 163px;
     background-color: $white;
 }
 .path-mod-assign [data-region="grade-panel"] .fitem > .col-md-3,
@@ -964,9 +964,9 @@ $popout-header-height: 4rem;
 }
 
 .path-mod-assign [data-region="grade-panel"] .fitem.has-popout {
-    padding: 0 2rem 2rem 2rem;
+    padding:0;
     @include border-radius($card-border-radius);
-    margin-top: 1rem;
+    margin-top: 0;
     margin-bottom: $spacer;
 
 }
@@ -1025,7 +1025,7 @@ $popout-header-height: 4rem;
 }
 
 .path-mod-assign [data-region="grading-navigation-panel"] {
-    height: 200px;
+    height: 160px;
 }
 
 .path-mod-assign [data-region="grading-navigation"] [data-region="input-field"] input {
@@ -1068,8 +1068,7 @@ $popout-header-height: 4rem;
     width: 100%;
 }
 .path-mod-assign [data-region="grade-panel"] .mform .fitem .felement[data-fieldtype="grading"] {
-    padding-left: $spacer;
-    padding-right: $spacer;
+    padding: 0;
 }
 .path-mod-assign [data-region="grade-panel"] .showmarkerdesc,
 .path-mod-assign [data-region="grade-panel"] .showstudentdesc {
@@ -1089,8 +1088,8 @@ $popout-header-height: 4rem;
 .path-mod-assign [data-region="user-selector"] {
   [data-action="previous-user"],
   [data-action="next-user"] {
-    margin-top: -4px;
-    padding: 0 10px;
+    margin-top: -2px;
+    padding: 7px;
     color: $body-color-secondary;
   }
 
@@ -1132,10 +1131,6 @@ $popout-header-height: 4rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
   }
-}
-
-.path-mod-assign [data-region="grade-panel"] div.submissionstatustable {
-  margin-bottom: 4rem;
 }
 
 .path-mod-assign [data-region="grade-panel"] #id_gradeheader {

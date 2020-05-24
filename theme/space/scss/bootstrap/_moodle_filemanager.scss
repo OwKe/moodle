@@ -140,6 +140,12 @@
 .fp-toolbar {
     float: left;
 
+    @include media-breakpoint-only(sm) {
+    float: none;
+    overflow: hidden;
+    margin-bottom: 10px;
+    }
+
     a {
       padding: 11px 16px;
     }

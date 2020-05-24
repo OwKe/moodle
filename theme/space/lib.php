@@ -60,42 +60,70 @@ function theme_space_get_extra_scss($theme) {
  * @return bool
  */
 function theme_space_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-  global $CFG;
   $theme = theme_config::load('space');
 
   if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
       return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'heroimg') {
+  } 
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'heroimg') {
       return $theme->setting_file_serve('heroimg', $args, $forcedownload, $options);
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'heroshadowimg') {
-      return $theme->setting_file_serve('heroshadowimg', $args, $forcedownload, $options); 
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'herovideomp4') {
-      return $theme->setting_file_serve('herovideomp4', $args, $forcedownload, $options);
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'herovideoogv') {
-      return $theme->setting_file_serve('herovideoogv', $args, $forcedownload, $options);
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'herovideowebm') {
-      return $theme->setting_file_serve('herovideowebm', $args, $forcedownload, $options);        
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'fphtmlblock3bgimg') {
-      return $theme->setting_file_serve('fphtmlblock3bgimg', $args, $forcedownload, $options);
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'loginbg') {
-      return $theme->setting_file_serve('loginbg', $args, $forcedownload, $options);
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'customlogosidebar') {
-      return $theme->setting_file_serve('customlogosidebar', $args, $forcedownload, $options);
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'favicon') {
-      return $theme->setting_file_serve('favicon', $args, $forcedownload, $options);
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^fpblock1image[1-9][0-9]?$/", $filearea) !== false) {
-    return $theme->setting_file_serve($filearea, $args, $forcedownload, $options); 
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^fpblock2image[1-9][0-9]?$/", $filearea) !== false) {
-      return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^teamimage[1-9][0-9]?$/", $filearea) !== false) {
-      return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^logosimage[1-9][0-9]?$/", $filearea) !== false) {
-      return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
-  } else if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^siemaSliderimage[1-9][0-9]?$/", $filearea) !== false) {
-      return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
-  } else {
-      send_file_not_found();
   }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'heroshadowimg') {
+      return $theme->setting_file_serve('heroshadowimg', $args, $forcedownload, $options); 
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'herovideomp4') {
+      return $theme->setting_file_serve('herovideomp4', $args, $forcedownload, $options);
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'herovideoogv') {
+      return $theme->setting_file_serve('herovideoogv', $args, $forcedownload, $options);
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'herovideowebm') {
+      return $theme->setting_file_serve('herovideowebm', $args, $forcedownload, $options);        
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'fphtmlblock3bgimg') {
+      return $theme->setting_file_serve('fphtmlblock3bgimg', $args, $forcedownload, $options);
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'loginbg') {
+      return $theme->setting_file_serve('loginbg', $args, $forcedownload, $options);
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'customlogosidebar') {
+      return $theme->setting_file_serve('customlogosidebar', $args, $forcedownload, $options);
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'favicon') {
+      return $theme->setting_file_serve('favicon', $args, $forcedownload, $options);
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^fpblock1image[1-9][0-9]?$/", $filearea) !== false) {
+    return $theme->setting_file_serve($filearea, $args, $forcedownload, $options); 
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^fpblock2image[1-9][0-9]?$/", $filearea) !== false) {
+      return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^teamimage[1-9][0-9]?$/", $filearea) !== false) {
+      return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^logosimage[1-9][0-9]?$/", $filearea) !== false) {
+      return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+  }
+  
+  if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^siemaSliderimage[1-9][0-9]?$/", $filearea) !== false) {
+      return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+  } 
+
+  send_file_not_found();
+  
 }
 
 /**
@@ -138,6 +166,10 @@ function theme_space_get_main_scss_content($theme) {
     $context = context_system::instance();
     if ($filename == 'default.scss') {
         $scss .= file_get_contents($CFG->dirroot . '/theme/space/scss/preset/default.scss');
+    } else if ($filename == 'demo2.scss') {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/space/scss/preset/demo2.scss');
+    } else if ($filename == 'demo3.scss') {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/space/scss/preset/demo3.scss');
     } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_space', 'preset', 0, '/', $filename))) {
         $scss .= $presetfile->get_content();
     } else {

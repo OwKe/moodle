@@ -35,11 +35,22 @@
 
 }}
 
-<div class="mt-1">
+
+{{#showemojipicker}}
+    <div
+        class="d-block emoji-auto-complete-container w-100 hidden"
+        data-region="emoji-auto-complete-container"
+        aria-live="polite"
+        aria-hidden="true"
+    >
+    </div>
+{{/showemojipicker}}
+
+<div class="mt-1 row no-gutters">
     <textarea
         dir="auto"
         data-region="send-message-txt"
-        class="form-control w-100"
+        class="form-control w-100 mx-0"
         rows="3"
         data-auto-rows
         data-min-rows="3"
@@ -50,11 +61,28 @@
         style="resize: none"
     ></textarea>
     <button
-        class="btn btn-primary mt-1 w-100"
+        class="btn btn-primary mt-1 {{#showemojipicker}}col mr-2{{/showemojipicker}} {{^showemojipicker}}w-100{{/showemojipicker}}"
         aria-label="{{#str}} sendmessage, core_message {{/str}}"
         data-action="send-message"
     >
         <span data-region="send-icon-container">{{#pix}} i/sendmessage, core {{/pix}}</span>
         <span class="hidden" data-region="loading-icon-container">{{> core/loading }}</span>
     </button>
+
+    {{#showemojipicker}}
+        <div
+            data-region="emoji-picker-container"
+            class="w-100 emoji-picker-container hidden"
+            aria-hidden="true"
+        >
+            {{> core/emoji/picker }}
+        </div>
+        <button
+            class="btn btn-secondary mt-1"
+            aria-label="{{#str}} toggleemojipicker, core {{/str}}"
+            data-action="toggle-emoji-picker"
+        >
+            {{#pix}} e/emoticons, core{{/pix}}
+        </button>
+    {{/showemojipicker}}
 </div>

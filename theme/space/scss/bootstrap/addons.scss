@@ -1030,6 +1030,10 @@ body.format-tiles.jsenabled .course-content .headerabovetiles {
   border-radius: $border-radius!important;
 }
 
+.fadeout-summary {
+    background-image: linear-gradient(rgba($body-bg,.3) 0,rgba($body-bg,1) 100%);
+}
+
 #page-course-view-remuiformat {
   .course-cover-image {
     border-radius: $border-radius!important;
@@ -1037,6 +1041,7 @@ body.format-tiles.jsenabled .course-content .headerabovetiles {
 
   .general-single-card,
   .single-card {
+    background-color: $body-bg;
     box-shadow: $box-shadow-sm!important;
   }
 
@@ -1469,4 +1474,189 @@ ul.remui-format-list li.section ul.section li.activity {
 
 .course-content .collapsible-actions a.expandall {
   background-image: none;
+}
+
+/* Edwiser Plugin */
+.general-section-card-details .generalsecactivitiesmain .generalsecactivitiescontent {
+  box-shadow: none;
+  border: 1px solid $border-color;
+}
+
+.general-section-card-details .generalsecactivities>div:first-child {
+  padding: 30px!important;
+  box-shadow: $box-shadow;
+}
+
+.general-section-card-details {
+  .coursemainimagediv,
+  .coursemainimage {
+    height: auto;
+  }
+}
+
+.general-activities-list-group-item {
+  font-size: $font-size-sm;
+}
+
+.general-section-card-details {
+
+  .coursedetails .row {
+    background-color: $card-bg;
+    border-radius: $card-border-radius;
+  }
+
+  .generalsecactivities {
+    .activityinstance {
+      .instancename {
+        font-size: $font-size-sm;
+        text-align: left;
+        color: $card-title;
+      }
+    }
+  } 
+
+  .generalsecactivities .activityinstance {
+    text-align: left;
+    width: 100%;
+
+    img {
+      width: 40px!important;
+      height: 40px!important;
+      margin-bottom: 1rem;
+    }
+  } 
+
+  .generalsecactivitiesmain {
+    .generalsecactivitiescontent {
+      border-radius: $border-radius;
+      box-shadow: $box-shadow-sm;
+      padding: 1rem;
+    }
+
+    .actions {
+      position: absolute;
+      top: 35px;
+      right: 30px;
+
+      img, svg {
+        width: 30px!important;
+        height: 30px!important;
+      }
+    }
+  }
+}
+
+.showactivitywrapper .showactivity {
+  width: 100%;
+  display: block;
+  color: $body-color-secondary;
+}
+
+#page-course-view-remuiformat .general-single-card,
+#page-course-view-remuiformat .single-card {
+  border-radius: $border-radius;
+  box-shadow: none!important;
+  border: 1px solid $border-color!important;
+}
+
+.wdm-completion-container form.togglecompletion .btn.btn-link img, 
+.wdm-completion-container .autocompletion img {
+  width: 40px;
+  height: 40px;
+}
+
+.wdm-mod-name {
+  font-size: $font-size-xs;
+  font-weight: $font-size-sm;
+  color: $body-color-light;
+}
+
+.wdm-single-activity-title  {
+  margin-bottom: 10px!important;
+
+  a {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.single-card .sno,
+.general-single-card .sno {
+  padding-top: 0!important;
+  margin: 10px 0;
+
+  font-size: $font-size-xs;
+  color: $body-color-light!important;
+
+  + .single-section-title {
+    margin:  10px 0!important;
+  }
+}
+
+.single-section-title  {
+  margin-bottom: 0!important;
+}
+
+.wdm-single-activity-title.nosummary img {
+  margin-top: 0;
+}
+
+.wdm-single-activity-title.nosummary a {
+  display: block;
+  text-align: left;
+}
+
+#page-course-view-remuiformat .general-single-card,
+#page-course-view-remuiformat .single-card {
+  padding: 30px!important;
+}
+
+.read-more-state:checked~.read-more-target {
+  margin: 10px 0;
+
+  table {
+    margin: 10px 0;
+  }
+}
+
+/* https://moodle.org/plugins/local_pages */
+ul.custompages-list {
+  padding: 0;
+  margin: 0;
+}
+
+.custompages-list-element {
+  border: 0;
+  padding: 0 0 10px 0;
+
+  a {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.custompages-list-element .pages-action {
+  padding: 13px 15px;
+}
+
+.custompages-title {
+  margin: 0;
+  padding: 10px 15px;
+  border-radius: $border-radius;
+}
+
+body#page-local-pages-edit .span2 .form-control {
+  height: auto!important;
+}
+
+body#page-local-pages-edit #form-builder {
+  h3 {
+    margin-top: 2rem;
+
+    span {
+      padding: 10px;
+    }
+  }
 }

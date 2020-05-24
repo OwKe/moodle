@@ -52,11 +52,6 @@ table.collection,
     text-align: left!important;
     color: $body-color!important;
 
-
-    .dropdown-toggle {
-      padding: .55rem 1rem!important;
-    }
-
     .btn {
         margin: 3px;
     }
@@ -74,6 +69,7 @@ table.collection,
     border-bottom: 2px solid $table-border-color;
     color: $table-head-color;
     font-size: $font-size-xs;
+    font-weight: $font-weight-sm-bold;
 
     .icon {
       margin-right: 16px;
@@ -84,6 +80,8 @@ table.collection,
       display: inline-flex;
       align-items: center;
       color: inherit;
+
+      font-weight: $font-weight-sm-bold;
       
       &:hover {
         opacity: 0.8;

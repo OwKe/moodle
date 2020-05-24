@@ -450,7 +450,8 @@ class icon_system extends icon_system_font {
             'local_boostnavigation:customnode' => 'far fa-file-alt',
             'local_boostnavigation:activities' => 'fas fa-poll-h',
             'local_boostnavigation:resources' => 'fas fa-poll-h',
-            'core:i/navigationitem' => 'fas fa-folder'
+            'core:i/navigationitem' => 'fas fa-folder',
+            'local_pages:newspaper' => 'fas fa-file-alt'
         ];
     }
 

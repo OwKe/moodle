@@ -48,7 +48,9 @@ if( $topbarstyle == "topbarstyle-5") { $topbarstyle5 = $topbarstyle; } else { $t
 if( $topbarstyle == "topbarstyle-6") { $topbarstyle6 = $topbarstyle; } else { $topbarstyle6 = false; }
 //end
 
-$regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+$buildregionmainsettings = !$PAGE->include_region_main_settings_in_header_actions();
+// If the settings menu will be included in the header then don't add it here.
+$regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settings_menu() : false;
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
@@ -62,12 +64,12 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'topbarstyle1' => $topbarstyle1,
-    'topbarstyle2' => $topbarstyle2,
-    'topbarstyle3' => $topbarstyle3,
-    'topbarstyle4' => $topbarstyle4,  
-    'topbarstyle5' => $topbarstyle5, 
-    'topbarstyle6' => $topbarstyle6,
+    'topbarstyle1' => !empty($topbarstyle1),
+    'topbarstyle2' => !empty($topbarstyle2),
+    'topbarstyle3' => !empty($topbarstyle3),
+    'topbarstyle4' => !empty($topbarstyle4),  
+    'topbarstyle5' => !empty($topbarstyle5), 
+    'topbarstyle6' => !empty($topbarstyle6),
     'siteurl' => $siteurl
 ];
 
@@ -82,5 +84,6 @@ $templatecontext = array_merge($templatecontext, $themesettings->customnav());
 $templatecontext = array_merge($templatecontext, $themesettings->sidebar_custom_block());
 $templatecontext = array_merge($templatecontext, $themesettings->top_bar_custom_block());
 $templatecontext = array_merge($templatecontext, $themesettings->fonts());
+
 
 echo $OUTPUT->render_from_template('theme_space/columns2', $templatecontext);

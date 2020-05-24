@@ -681,7 +681,7 @@
 }
 
 .preferences-container {
-    overflow: scroll;
+    overflow-x: auto;
     width: 100%;
 
     .table {
@@ -1271,6 +1271,7 @@ $message-drawer-width: 430px;
       padding: 0.25rem;
       cursor: pointer;
       transition: $general-transition;
+      border-radius: $border-radius;
 
       position: relative;
 
@@ -1490,7 +1491,9 @@ $message-drawer-width: 430px;
 }
 
 .c-message-header {
-  padding: 0.5rem 0;
+  padding: 10px 10px 10px 0px;
+  background-color: $gray-100;
+  border-radius: $border-radius;
 }
 
 [data-action="view-contact"] div,
@@ -1622,3 +1625,46 @@ $message-drawer-width: 430px;
 
   cursor: e-resize;
 }
+
+    .emoji-picker-container {
+        position: absolute;
+        top: -5px;
+        right: 0;
+        transform: translateY(-100%);
+        z-index: 9999;
+
+        .emoji-picker {
+            .picker-row {
+                // To override the button styling for the message app.
+                .emoji-button {
+                    height: $picker-emoji-button-size;
+                    width: $picker-emoji-button-size;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(xs) {
+            right: -1 * map-get($spacers, 2);
+        }
+    }
+
+    .emoji-auto-complete-container {
+        overflow: auto;
+        // Add a 50px buffer to account for scroll bars.
+        max-height: $picker-row-height + 50px;
+        transition: max-height .15s ease-in-out;
+        visibility: visible;
+
+        &.hidden {
+            display: block;
+            max-height: 0;
+            visibility: hidden;
+            overflow: hidden;
+            transition: max-height .15s ease-in-out, visibility 0s linear .15s, overflow 0s linear .15s;
+        }
+    }
+
+    .emoji-picker .emojis-container, .emoji-picker .search-results-container {
+        max-height: 300px!important;
+        overflow-y: scroll;
+    }

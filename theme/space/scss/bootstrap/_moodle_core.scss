@@ -271,23 +271,22 @@ a.autolink.glossary:hover {
       @extend %fa-icon;
       @extend .fas;
   
+      position: absolute;
+      top: calc(50% - 7px);
+      left: 14px;
+
+      content: fa-content($fa-var-caret-right);
       /*rtl:raw:
-      @extend %fa-icon;
-      @extend .fas;
       content: fa-content($fa-var-caret-left);
       right: 14px;
       left: auto;
       */
-      content: fa-content($fa-var-caret-right);
-      /*rtl:remove*/
 
       font-size: 14px;
       color: inherit;
       opacity: 0.6;
 
-      position: absolute;
-      top: calc(50% - 7px);
-      left: 14px;
+
     }
 
     &:before {
@@ -925,6 +924,12 @@ table.mod_index {
     right: 0;
     margin: .3em;
     width: auto;
+
+    transition: $general-transition;
+
+    &:hover {
+      .icon { color: $red-600; }
+    }
 }
 
 .comment-report-selectall {
@@ -1066,13 +1071,14 @@ img.user-image {
 
 .path-tag .tag-index-items .tagarea h3 {
     display: block;
-    padding: $spacer 2 * $spacer;
+    padding: $spacer 1.5 * $spacer;
+    margin-bottom: 1rem;
+
     font-size: $font-size-base;
     font-weight: $font-weight-bold;
     color: $body-color;
     word-wrap: break-word;
     border-bottom: solid 1px $border-color;
-    margin-bottom: 2rem;
 }
 
 .path-tag .tagarea .controls,
@@ -1098,7 +1104,7 @@ img.user-image {
 }
 
 .path-tag .tagarea .controls.controls-bottom {
-    margin: 10px
+    margin: $spacer
 }
 
 .path-tag .tagarea .controls .gotopage.nextpage::after {
@@ -1246,7 +1252,8 @@ tr.flagged-tag a {
 }
 
 .tag_feed {
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem 0;
+  padding: 0 1.5rem;
 }
 
 .tag_feed.media-list .media .itemimage {
@@ -1544,6 +1551,8 @@ audio.mediaplugin_html5audio {
 }
 
 .mediaplugin, .mediaplugin video {
+   max-width: 1020px;
+   
   table & {
     width: auto;
   }
@@ -1600,7 +1609,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
 
 /* Moodle Dialogue Settings (moodle-core-dialogue)  */
 .moodle-dialogue-base .moodle-dialogue-lightbox {
-    background-color: $black;
+    background-color: #000;
 }
 
 // Prevent adding backdrops to popups in popups.
@@ -1676,7 +1685,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     font-weight: $font-weight-sm-bold;
     line-height: 1.5;
     word-wrap: break-word;
-    color: initial;
+    color: inherit;
 
     border-bottom: 1px solid $gray-200;
     border-radius: 5px 5px 0 0;
@@ -1835,7 +1844,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
 
 .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-bd {
     padding: 0;
-    background: #f2f2f2;
+    background: inherit;
     margin: 0 -30px -30px;
     width: calc(100% + 60px);
     border-radius: 0 0 5px 5px;
@@ -1911,7 +1920,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     display: block;
     margin: 0;
     padding: ($spacer / 2) 0;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid $border-color;
 }
 
 .choosercontainer #chooseform .option .icon {
@@ -1944,7 +1953,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     left: 240px;
     margin: 0;
     padding: 1.6em;
-    background-color: #fff;
+    background-color: $modal-content-bg;
     overflow-x: hidden;
     overflow-y: auto;
     line-height: 2em;
@@ -1956,7 +1965,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
 }
 
 .choosercontainer #chooseform .selected {
-    background-color: #fff;
+    background-color: $theme-color-2;
     margin-top: -1px;
     padding-top: 1px;
 }
@@ -3205,4 +3214,106 @@ a.wiki_newentry:link, a.wiki_newentry:visited {
       margin-top: 2rem;
     }
   }
+}
+
+// Emoji picker.
+$picker-width: 100% !default;
+$picker-width-xs: 320px !default;
+$picker-height: 440px !default;
+$picker-row-height: 40px !default;
+$picker-emoji-button-size: 40px !default;
+$picker-emoji-button-font-size: 24px !default;
+$picker-emoji-category-count: 9 !default;
+$picker-emojis-per-row: 7 !default;
+
+.emoji-picker {
+    background-color: $body-bg;
+    border-radius: $border-radius;
+
+    width: $picker-width;
+    height: $picker-height;
+    box-shadow: $box-shadow-lg;
+
+    .category-button {
+        padding: .375rem 0;
+        height: 100%;
+        width: $picker-width / $picker-emoji-category-count;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid transparent;
+
+        &.selected {
+            border-bottom: 2px solid map-get($theme-colors, 'primary');
+        }
+    }
+
+    .emojis-container,
+    .search-results-container {
+        min-width: $picker-emojis-per-row * $picker-emoji-button-size;
+    }
+
+    .picker-row {
+        height: $picker-row-height;
+
+        .category-name {
+            line-height: $picker-row-height;
+        }
+
+        .emoji-button {
+            height: $picker-emoji-button-size!important;
+            width: $picker-emoji-button-size!important;
+            line-height: $picker-emoji-button-size;
+            font-size: $picker-emoji-button-font-size;
+            overflow: hidden;
+
+            @include hover-focus {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .emoji-preview {
+        padding: 10px;
+        border-radius: $border-radius;
+        background-color: $body-bg;
+        font-size: $picker-row-height;
+        line-height: $picker-row-height;
+    }
+
+    .emoji-short-name {
+        line-height: $picker-row-height / 2;
+    }
+
+    @include media-breakpoint-down(xs) {
+        width: $picker-width-xs;
+    }
+}
+
+.emoji-auto-complete {
+    height: $picker-row-height;
+    overflow-y: auto;
+
+    .btn.btn-link.btn-icon.emoji-button {
+        height: $picker-emoji-button-size!important;
+        width: $picker-emoji-button-size!important;
+        line-height: $picker-emoji-button-size;
+        font-size: $picker-emoji-button-font-size;
+
+        &.active {
+            background-color: $gray-200;
+        }
+    }
+}
+
+.toast-wrapper {
+    max-width: $toast-max-width;
+    max-height: 0;
+    // Place these above any modals and other elements.
+    z-index: 1051;
+
+    > :first-child {
+        margin-top: $spacer;
+    }
 }

@@ -16,6 +16,10 @@
         border-radius: 0;
     }
 
+    .yui-layout-unit-right {
+        background: inherit;
+    }
+
     .yui-layout-unit div.yui-layout-bd {
         background-color: transparent;
     }
@@ -59,7 +63,7 @@
             text-align: center;
             margin: 10px 0;
             font-size: $font-size-sm;
-            color: $gray-700;
+            color: $theme-color-3;
         }
 
         .chat-message.course-theme {
