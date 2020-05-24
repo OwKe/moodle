@@ -1,0 +1,101 @@
+// Base class
+//
+// Requires one of the contextual, color modifier classes for `color` and
+// `background-color`.
+
+.badge {
+  display: inline-block;
+  padding: $badge-padding-y $badge-padding-x;
+  margin: 1px 4px 1px 1px;
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  line-height: 1.2;
+  text-align: center;
+  vertical-align: baseline;
+  @include border-radius($badge-border-radius);
+
+  // Empty badges collapse automatically
+  &:empty {
+    display: none;
+  }
+
+  .icon {
+    font-size: 0.85rem;
+  }
+
+  p {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .btn-icon {
+    width: 26px;
+    padding: 0 5px;
+    margin-left: 0.25rem;
+  }
+}
+
+// Quick fix for badges in buttons
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+
+// Pill badges
+//
+// Make them extra rounded with a modifier to replace v3's badges.
+
+.badge-pill {
+  padding-right: $badge-pill-padding-x;
+  padding-left: $badge-pill-padding-x;
+  @include border-radius($badge-pill-border-radius);
+}
+
+// Colors
+//
+// Contextual variations (linked badges get darker on :hover).
+.badge-primary {
+  background-color: $theme-color-3;
+  color: $theme-color-9;
+}
+
+.badge-secondary {
+  background-color: $theme-color-9;
+  color: $theme-color-3;
+}
+
+.badge-success,
+.label-success {
+  background-color: $green-200;
+  color: $green-800;
+}
+
+.badge-danger,
+.label-important {
+  background-color: $red-600;
+  color: $red-200;
+}
+
+.badge-warning,
+.label-warning {
+  background-color: $yellow-200;
+  color: $yellow-900;
+}
+
+.badge-info,
+.label-info,
+.label-default {
+  background-color: $theme-color-9;
+  color: $theme-color-3;
+}
+
+.badge-light {
+  background-color: $gray-100;
+  color: $gray-900;
+}
+
+.badge-dark {
+  background-color: $gray-900;
+  color: $white;
+}

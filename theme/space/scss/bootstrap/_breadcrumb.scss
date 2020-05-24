@@ -1,0 +1,85 @@
+.breadcrumb,
+.coursefilesbreadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+
+  list-style: none;
+
+  font-size: 0.75rem;
+  color: $body-color-light;
+
+  @include media-breakpoint-only(sm) {
+    justify-content: center;
+  }
+
+  @include media-breakpoint-between(sm,md) {
+  .breadcrumbs-container {
+    overflow-x: scroll;
+  }
+
+  [role="navigation"] {
+    width: max-content;
+  }
+  }
+
+}
+
+  #page-navbar, .page-title {
+    @include media-breakpoint-only(sm) {
+      margin: 0 auto;
+    }
+  }
+
+.breadcrumb-item,
+.coursefilesbreadcrumb {
+  // The separator between breadcrumbs (by default, a forward-slash: "/")
+  + .breadcrumb-item::before {
+    display: inline-block; // Suppress underlining of the separator in modern browsers
+    padding-right: 0.4375rem;
+    padding-left: 0.4375rem;
+
+    content: "-";
+  }
+
+  a {
+    color: $body-color-light;
+
+    &:hover {
+      color: $link-color!important;
+    }
+
+    @include media-breakpoint-between(sm,md) {
+      font-size: $font-size-xs;
+    }
+  }
+
+  &.active,
+  &:hover {
+    color: $body-color;
+  }
+
+  &:last-child {
+    font-weight: $font-weight-sm-bold;
+    
+    a { color: rgba($body-color-light, 0.8); }
+
+    @include media-breakpoint-between(sm,md) {
+      font-size: $font-size-xs;
+    }
+  }
+
+}
+
+
+@include media-breakpoint-only(sm) {
+  .breadcrumbs-container nav {
+    overflow-x: auto;
+
+    .breadcrumb {
+      width: max-content;
+    }
+  }
+}

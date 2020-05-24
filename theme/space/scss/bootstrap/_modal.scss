@@ -1,0 +1,433 @@
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and stuff
+
+// Container that the modal scrolls within
+.modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-modal;
+  display: none;
+  // Prevent Chrome on Windows from adding a focus outline. For details, see
+  // https://github.com/twbs/bootstrap/pull/10951.
+  outline: 0;
+  // We deliberately don't use `-webkit-overflow-scrolling: touch;` due to a
+  // gnarly iOS Safari bug: https://bugs.webkit.org/show_bug.cgi?id=158342
+  // See also https://github.com/twbs/bootstrap/issues/17695
+
+  .modal-open & {
+    padding: 60px 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .card-content {
+    margin: 0!important;
+    padding: 0!important;
+  }
+
+}
+
+.modal-fixed {
+  width: 500px;
+  position: fixed;
+  top: 18%;
+  left: calc(50% - 120px);
+  z-index: $zindex-modal;
+
+  #page-site-index & {
+  left: calc(50% - 250px)
+  }
+
+  &.fade {
+    display: none;
+  }
+
+  @include media-breakpoint-only(sm) {
+    max-width: 320px;
+    left: calc(50% - 160px);
+  }
+
+  .modal-dialog {
+    padding: 15px!important;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .close {
+    top: -34px!important;
+    right: -10px!important;
+    border-radius: 30px!important;
+
+    background-color: $black!important;
+
+    @include media-breakpoint-only(sm) {
+      top: -36px!important;
+      right: 33px!important;
+    }
+
+    &:before {
+      color: $white;
+    }
+
+  }
+}
+
+.moodle-dialogue-base,
+.moodle-dialogue,
+.modal-dialog,
+.moodle-dialogue-hd,
+.modal-header {
+
+  .form-inline .form-control,
+  .mform .form-inline .form-control,
+  .custom-select {
+    width: auto;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  h3, .modal-title {
+    font-weight: $font-weight-sm-bold;
+    font-size: 1rem;
+    margin: 0;
+    color: $gray-900;
+  }
+
+  .close, .closebutton {
+    background: $gray-100;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+
+    opacity: .8;
+
+    border: none;
+    border-radius: $border-radius;
+    padding: 1rem;
+
+    cursor: pointer;
+
+    transition: $general-transition;
+
+    @include hover-focus {
+      opacity: 1;
+    }
+
+    // Opinionated: add "hand" cursor to non-disabled .close elements
+    &:not(:disabled):not(.disabled) {
+      cursor: pointer;
+    }
+
+    &:hover {
+      background: $gray-200;
+    }
+
+    [aria-hidden="true"] {
+      display: none;
+    }
+
+  }
+
+}
+
+/* YUI mod */
+.yui3-button.closebutton {
+  position: absolute;
+
+  opacity: .8;
+
+  transition: $general-transition;
+
+  background-color: $gray-100;
+  
+  @extend %fa-icon;
+  @extend .fas;
+
+  &:before {
+    content: fa-content($fa-var-times);
+
+    font-size: 16px;
+    color: $black;
+
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 5px);
+  }
+
+  @include hover-focus {
+    opacity: 1;
+  }
+
+  &:hover {
+    background-color: $gray-200;
+    background-image: none;
+  }
+  // Opinionated: add "hand" cursor to non-disabled .close elements
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
+
+  border: none;
+
+  right: -60px;
+  top: -40px;
+
+  box-shadow: none;
+
+  .listing-pagination & {
+    position: relative;
+    background: none;
+
+    &:hover {
+      position: relative;
+      background: none;
+    }
+  }
+}
+
+.yui3-panel .yui3-widget-hd .yui3-widget-buttons {
+  top: -10px;
+  right: -10px;
+}
+
+.yui3-widget-buttons .yui3-button:not(.closebutton) {
+  display: inline-block!important;
+  text-align: center!important;
+
+  vertical-align: middle!important;
+
+  border-radius: $border-radius!important;
+
+  padding: $btn-padding-y $btn-padding-x!important;
+
+  font-size: 0.85 * $font-size-base!important;
+  font-weight: $btn-font-weight!important;
+  line-height: 180%!important;
+  color: $body-color-secondary;
+
+  text-decoration: none!important;
+  @include transition($btn-transition);
+}
+
+// Shell div to position the modal with bottom padding
+.modal-dialog {
+  pointer-events: none;
+
+  padding: 0 2rem 2rem 2rem;
+  margin: 0 auto;
+
+  background-color: $white;
+  box-shadow: 0 22px 60px 0 rgba(0,0,0,.25);
+
+  border-radius: $border-radius;
+
+  // When fading in the modal, animate it to slide down
+  .modal.fade & {
+    @include transition($modal-transition);
+    transform: translate(0, -25%);
+  }
+  .modal.show & {
+    transform: translate(0, 0);
+  }
+}
+
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - (#{$modal-dialog-margin} * 2));
+}
+
+// Actual modal
+.modal-content {
+  width: 100%; // Ensure `.modal-content` extends the full width of the parent `.modal-dialog`
+  // counteract the pointer-events: none; in the .modal-dialog
+  pointer-events: auto;
+
+  // Remove focus outline from opened modal
+  outline: 0;
+
+  font-size: $font-size-sm;
+}
+
+// Modal background
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal-backdrop;
+  background-color: $modal-backdrop-bg;
+
+  // Fade for backdrop
+  &.fade { opacity: 0; }
+  &.show { opacity: $modal-backdrop-opacity; }
+}
+
+// Modal header
+// Top section of the modal w/ title and dismiss
+.modal-header {
+  padding: 0!important;
+  margin: 0 -2rem!important;
+
+  text-align: center;
+  border-radius: $border-radius $border-radius 0 0;
+
+  position: relative;
+
+  h3, h4, h5 {
+    padding: 1.5rem;
+    margin: 0;
+
+    position: relative;
+    width: 100%;
+
+    text-align: center;
+    border-radius: $border-radius $border-radius 0 0;
+    font-weight: $font-weight-bold;
+    color: $gray-900!important;
+  }
+}
+
+// Title text within header
+.modal-title {
+  margin-bottom: 0;
+  line-height: $modal-title-line-height;
+}
+
+// Modal body
+// Where all modal content resides (sibling of .modal-header and .modal-footer)
+.modal-body {
+  position: relative;
+
+  .moreless-actions {
+    left: 0;
+    width: 100%;
+    display: block;
+
+    a {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+// Footer (for actions)
+.moodle-dialogue-bd {
+  padding: 1 * $spacer 0 0 0!important;
+
+  .custom-select {
+    width: 100%!important;
+    margin-left: 0;
+  }
+
+  .button-default {
+    width: 100%;
+  }
+
+  .form-actions,
+  [data-region=link-buttons] {
+    padding: $spacer 0 0 0;
+    @extend .col-12;
+    @extend .row;
+    @extend .no-gutters;
+
+    .btn:first-child {
+        margin-right: 0.5rem;
+    }
+
+    .btn {
+      @extend .col;
+    }
+
+  }
+}
+
+#page-admin-roles-permissions {
+  .confirmation-buttons {
+    margin: 1rem 0 0 0;
+
+      .btn-secondary {
+        margin-right: 5px;
+      }
+
+  }
+}
+
+
+.modal-footer {
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center; // vertically center
+  justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
+
+  // Easily place margin between footer elements
+  > :not(:first-child) { margin-left: .25rem; }
+  > :not(:last-child) { margin-right: .25rem; }
+
+  .btn {
+    @extend .col;
+  }
+
+  a {
+    @extend .col;
+  }
+}
+
+// Measure scrollbar width for padding body during modal show/hide
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+// Scale up the modal
+@include media-breakpoint-up(sm) {
+  // Automatically set modal's width for larger viewports
+  .modal-dialog {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .modal-dialog-centered {
+    min-height: calc(100% - (#{$modal-dialog-margin-y-sm-up} * 2));
+  }
+
+  .modal-content {
+    @include box-shadow($modal-content-box-shadow-sm-up);
+  }
+
+  .modal-sm { max-width: $modal-sm; }
+
+}
+
+@include media-breakpoint-up(lg) {
+  .modal-lg { max-width: $modal-lg; }
+}
+
+
+/*mod for popup competency*/
+
+[data-filetypesbrowserbody="id_s_assignsubmission_file_filetypes"] {
+  small {
+    display: block;
+    margin-left: 27px;
+  }
+}

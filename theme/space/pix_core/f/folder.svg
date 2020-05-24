@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>folder</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="folder">
+            <rect id="Rectangle" fill-opacity="0.01" fill="#FFFFFF" x="0" y="0" width="50" height="50" rx="5"></rect>
+            <g transform="translate(12.000000, 15.000000)" fill="#505356" fill-rule="nonzero" id="Shape">
+                <path d="M23.5625,3.25 L13.8125,3.25 L11.0383203,0.475820313 C10.7336328,0.171132813 10.3202734,0 9.88914062,0 L2.4375,0 C1.09128906,0 0,1.09128906 0,2.4375 L0,17.0625 C0,18.4087109 1.09128906,19.5 2.4375,19.5 L23.5625,19.5 C24.9087109,19.5 26,18.4087109 26,17.0625 L26,5.6875 C26,4.34128906 24.9087109,3.25 23.5625,3.25 Z M23.5625,17.0625 L2.4375,17.0625 L2.4375,2.4375 L9.55296875,2.4375 L12.3271484,5.21167969 C12.6318359,5.51636719 13.0451953,5.6875 13.4763281,5.6875 L23.5625,5.6875 L23.5625,17.0625 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

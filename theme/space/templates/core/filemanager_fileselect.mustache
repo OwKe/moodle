@@ -1,0 +1,68 @@
+<div class="filemanager fp-select">
+    <div class="fp-select-loading">
+        {{#pix}}i/loading_small{{/pix}}
+    </div>
+    <form class="form clearfix">
+        <div class="form-group row justify-content-between no-gutters">
+            <button class="fp-file-download btn btn-sm btn-secondary col m-1">{{#str}}download{{/str}}</button>
+            <button class="fp-file-delete btn btn-sm btn-reset col m-1">{{#str}}delete{{/str}}</button>
+            <button class="fp-file-setmain btn btn-sm btn-secondary col m-1">{{#str}}setmainfile, repository{{/str}}</button>
+            <span class="fp-file-setmain-help col m-1">{{{helpicon}}}</span>
+            <button class="fp-file-zip btn btn-sm btn-secondary col m-1">{{#str}}zip, editor{{/str}}</button>
+            <button class="fp-file-unzip btn btn-sm btn-secondary col m-1">{{#str}}unzip{{/str}}</button>
+        </div>
+
+                <div class="fp-saveas form-group row no-gutters">
+                    <label class="form-control-label col-4">{{#str}}name, repository{{/str}}</label>
+                    <div class="col-8"><input class="form-control" type="text"/></div>
+                </div>
+                <div class="fp-author form-group row no-gutters">
+                    <label class="form-control-label col-4">{{#str}}author, repository{{/str}}</label>
+                    <div class="col-8"><input class="form-control" type="text"/></div>
+
+                </div>
+                <div class="fp-license form-group row no-gutters">
+                    <label class="form-control-label col-4">{{#str}}chooselicense, repository{{/str}}</label>
+                    <div class="col-8">
+                        <select class="custom-select"></select>
+                    </div>
+                </div>
+                <div class="fp-path form-group row no-gutters">
+                    <label class="form-control-label col-4">{{#str}}path, repository{{/str}}</label>
+                    <div class="col-8">
+                        <select class="custom-select"></select>
+                    </div>
+                </div>
+                <div class="fp-original form-group row no-gutters">
+                    <label class="form-control-label col-4">{{#str}}original, repository{{/str}}</label>
+                    <div class="col-8">
+                        <span class="fp-originloading">{{#pix}}i/loading_small{{/pix}} {{#str}}loading, repository{{/str}}</span><span class="fp-value"></span>
+                    </div>
+                </div>
+                <div class="fp-reflist form-group row no-gutters">
+                    <label class="form-control-label col-4">{{#str}}referenceslist, repository{{/str}}</label>
+                    <div class="col-8">
+                        <p class="fp-refcount"></p>
+                        <span class="fp-reflistloading">{{#pix}}i/loading_small{{/pix}} {{#str}}loading, repository{{/str}}</span>
+                        <ul class="fp-value"></ul>
+                    </div>
+                </div>
+        <div class="fp-select-buttons form-group mb-0">
+            <button class="fp-file-update btn-primary btn m-r-1">{{#str}}update{{/str}}</button>
+            <button class="fp-file-cancel btn-secondary btn">{{#str}}cancel{{/str}}</button>
+        </div>
+    </form>
+    <hr />
+    <div class="fp-info clearfix d-inline-flex align-items-start col-12 p-0">
+        <div class="row no-gutters w-100">
+          <div class="fp-thumbnail col m-0"></div>
+          <div class="col m-0 px-4 py-3 alert alert-warning fp-fileinfo">
+              <div class="fp-datemodified"><p><strong>{{#str}}lastmodified, repository{{/str}}</strong><br><span class="fp-value"></span></div>
+              <div class="fp-datecreated"><strong>{{#str}}datecreated, repository{{/str}}</strong><br><span class="fp-value"></span></div>
+              <div class="fp-size"><strong>{{#str}}size, repository{{/str}}</strong><br><span class="fp-value"></span></div>
+              <div class="fp-dimensions"><strong>{{#str}}dimensions, repository{{/str}}</strong><br><span class="fp-value"></span></div>
+          </div>
+        </div>
+
+    </div>
+</div>

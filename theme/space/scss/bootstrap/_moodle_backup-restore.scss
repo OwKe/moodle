@@ -1,0 +1,350 @@
+.path-backup .mform {
+    .grouped_settings {
+        clear: both;
+        overflow: hidden;
+
+        .icon {
+          margin: 0 .25rem;
+        }
+
+        /* Use card styles but avoid extend because that brings in too much. */
+        &.section_level {
+            background-color: $card-bg;
+            @include border-radius($card-border-radius);
+            @include clearfix;
+            margin-bottom: $card-spacer-x;
+        }
+    }
+
+    /* These are long labels with checkboxes on the right. */
+    .include_setting {
+        width: 50%;
+        display: inline-block;
+        padding: 10px;
+        border-right: $card-border-color;
+    }
+    .normal_setting {
+        width: 50%;
+        display: inline-block;
+        padding: 10px;
+    }
+}
+
+.path-backup {
+    .section_level {
+        font-weight: $font-weight-sm-bold;
+    }
+    .section_level .activity_level {
+        font-weight: normal;
+    }
+    .proceedbutton {
+        margin-left: auto;
+    }
+
+    .detail-pair {
+        border-bottom: 1px solid $card-border-color;
+        padding: 10px 0;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        .detail-pair-label {
+            margin: 0;
+            padding-right: 10px;
+
+            &:empty {
+                display: none;
+            }
+        }
+    }
+
+    h2.header {
+        font-size: 1.25rem;
+    }
+
+    .subheader {
+        margin: 1rem 0;
+        font-size: 1rem;
+    }
+}
+
+/* Override the columns width to leave more room for the labels. */
+.path-backup .mform {
+
+    .felement {
+        font-size: $font-size-xs;
+        font-weight: $font-weight-sm-bold;
+    }
+
+    .custom-select {
+        padding: 10px 20px 10px 10px;
+    }
+
+    .root_setting,
+    .grouped_settings {
+        /* Striped rows like a table */
+        &:nth-of-type(odd) {
+            border-bottom: 1px solid $card-border-color;
+
+            &:last-child {
+              border-bottom: none;
+            }
+        }
+
+        &:nth-of-type(even) {
+            border-bottom: 1px solid $card-border-color;
+
+            &:last-child {
+              border-bottom: none;
+            }
+        }
+
+        .form-control-static {
+            width: auto;
+        }
+
+        .form-group {
+            margin: 1rem 0 .5rem 0;
+            /* These checkboxes with no label on the left. */
+            .col-md-3.checkbox {
+                width: 0%;
+            }
+            .col-md-9.checkbox {
+                width: 100%;
+                left: 0;
+            }
+        }
+    }
+}
+
+/* Detail pair is (usually) some short label with a longer value */
+.path-backup .detail-pair {
+    align-items: center;
+    display: inline-flex;
+    width: 100%;
+
+    .detail-pair-label {
+        display: inline-flex;
+    }
+    .detail-pair-value {
+        display: inline-flex;
+    }
+}
+
+    .detail-pair {
+
+        .rcs-search {
+            margin-top: 10px;
+        }
+
+        .pl-2 {
+            padding: 0!important;
+        }
+
+    }
+
+/* Make these bits full width and work with the detail-pair */
+.path-backup .backup-section {
+    font-size: $font-size-xs;
+
+    .generaltable {
+        margin-bottom: 0;
+    }
+
+    .sub-header,
+    .backup-sub-section,
+    .singlebutton,
+    .header {
+        width: 100%;
+        float: left;
+        clear: both;
+    }
+
+    /* Fix for nested table headers */
+    th.header {
+        width: auto;
+        float: none;
+    }
+
+    /* Add card styles to backup sections */
+    ::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    background-color: $card-bg;
+    border-radius: $border-radius;
+
+    @include clearfix;
+    padding: $card-spacer-x;
+    margin-bottom: $card-spacer-x;
+
+    .ics-totalresults {
+      margin-bottom: 1rem;
+      font-weight: $font-weight-sm-bold;
+    }
+}
+
+.path-backup .notification.dependencies_enforced {
+    color: $state-danger-text;
+    font-weight: bold;
+}
+
+.path-backup .backup_progress {
+    margin-top: $spacer-y;
+    margin-bottom: $spacer-y;
+
+    font-size: $font-size-xs;
+    color: $body-color-secondary;
+
+    .sep {
+      margin: 0 0.5rem;
+      font-size: $font-size-xs;
+      color: $body-color-light;
+    }
+
+    .backup_stage {
+        @extend .text-muted;
+
+        &.backup_stage_current {
+            color: $theme-color-3!important;
+        }
+    }
+}
+
+.path-backup .backup_progress span.backup_stage.backup_stage_complete {
+    color: inherit;
+}
+
+#page-backup-restore .filealiasesfailures {
+    background-color: $state-danger-bg;
+
+    .aliaseslist {
+        background-color: $body-bg;
+    }
+}
+
+
+.path-backup .wibbler {
+    width: 500px;
+    margin: 0 auto 10px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    position: relative;
+    min-height: 4px;
+
+    .wibble {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 4px;
+    }
+
+    .state0 {
+        background: #eee;
+    }
+    .state1 {
+        background: #ddd;
+    }
+    .state2 {
+        background: #ccc;
+    }
+    .state3 {
+        background: #bbb;
+    }
+    .state4 {
+        background: #aaa;
+    }
+    .state5 {
+        background: #999;
+    }
+    .state6 {
+        background: #888;
+    }
+    .state7 {
+        background: #777;
+    }
+    .state8 {
+        background: #666;
+    }
+    .state9 {
+        background: #555;
+    }
+    .state10 {
+        background: #444;
+    }
+    .state11 {
+        background: #333;
+    }
+    .state12 {
+        background: #222;
+    }
+}
+
+#page-backup-backup {
+  [role="main"] {
+    .form-group {
+      margin: 0;
+      padding: 0.5rem 0.25rem;
+
+      .icon {
+        margin: 0 0 0 0.5rem;
+        width: 20px;
+        height: 20px;
+      }
+
+      label {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.path-backup .mform .grouped_settings.section_level {
+  border: none;
+  padding: 0;
+}
+
+.backup_log_contents {
+    @extend .alert;
+    @extend .alert-info;
+  }
+
+
+  .backup-restore {
+    span.error {
+        margin: 15px 0 0;
+        padding: 10px;
+        display: inline-flex;
+
+        font-size: $font-size-xs;
+        font-weight: $font-weight-sm-bold;
+        color: $white;
+        background-color: $red-600;
+
+        border-radius: $border-radius $border-radius 0 0;
+    }
+
+    fieldset.error {
+        padding: 1rem;
+        background-color: $white;
+        border-radius: 0 $border-radius $border-radius $border-radius;
+        border: 2px solid $red-600;
+    }
+
+    td, th {
+        padding: 3px;
+        font-size: $font-size-xs;
+    }
+
+    .error {
+        .detail-pair {
+            align-items: flex-start;
+        }
+    }
+
+  }

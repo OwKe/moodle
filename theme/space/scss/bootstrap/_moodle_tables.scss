@@ -1,0 +1,272 @@
+
+.cap-desc {
+  font-weight: $font-weight-bold;
+}
+
+
+#page-admin-roles-permissions {
+  .preventlink, .forbidden {
+    margin-right: 5px!important;
+    margin-bottom: 8px!important;
+    display: inline-flex!important;
+  }
+
+  .allowlink, .prohibitlink {
+    margin-right: 5px!important;
+    margin-bottom: 5px!important;
+    display: inline-flex!important;
+  }
+
+  .preventlink, .prohibitlink, .allowlink, .forbidden {
+    padding: 6px;
+  }
+
+  .preventlink {
+    margin-bottom: 0;
+  }
+
+  .allowed {
+    display: block!important;
+  }
+
+  .allowed {
+    margin-bottom: 0.5rem;
+    min-width: 200px;
+  }
+
+  .allowmore {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+#defineroletable .header, .rolecap .header {
+  background-color: $table-head-bg;
+  border-bottom: 1px solid $table-border-color;
+  color: $table-color!important;
+  font-weight: $font-weight-bold;
+}
+
+#defineroletable {
+  .cap-desc a {
+    font-weight: $font-weight-bold;
+    color: $table-color;
+  }
+}
+
+
+
+.risk {
+  .btn {
+    img {
+      width: 18px;
+      height: auto;
+    }
+  }
+}
+
+/* reset YUI styles */
+.yui3-skin-sam {
+  .yui3-datatable-table {
+    font-family: inherit;
+  }
+}
+
+
+/* Grades - Tech-enabled Learning - User report */
+#page-course-user {
+  .column-itemname {
+    .icon {
+      margin-right: 6px!important;
+
+      display: inline-flex;
+    }
+  }
+
+  .gradeitemheader {
+    line-height: 1.5;
+  }
+}
+
+
+/* Dashboard - My courses - Course - Grades - Single view */
+#page-grade-report-singleview-index {
+  [role="main"] {
+    .cell {
+      .form-control {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+/* mod for enrol/manual/manage.php */
+.roleassigntable {
+  td {
+    vertical-align: top;
+  }
+}
+
+.enroloptions {
+  select {
+    width: 100%;
+  }
+
+  p {
+    margin: $spacer 0;
+  }
+}
+
+.surveytable {
+  width: 100%!important;
+}
+
+
+.scale_options {
+  margin-top: 0.5rem;
+  font-size: $font-size-xs;
+  color: $body-color-light;
+}
+
+      /* file manager */
+      table.ygtvtable {
+        width: 100%;
+      }
+
+
+      .no-overflow {
+        overflow-x: auto;
+
+        table {
+          width: 100%;
+        }
+      }
+
+      .otherusersdesc {
+        margin-bottom: 2rem;
+      }
+
+.path-grade-report-singleview div.reporttable {
+  overflow-x: scroll;
+}
+
+
+#page-grade-report-singleview-index {
+  .generaltable th .icon {
+    width: auto;
+    margin-right: 1rem!important;
+  }
+}
+
+
+#page-admin-roles-permissions {
+  .generalbox.capbox {
+    overflow-x: auto;
+
+    #permissions {
+      min-width: 100%;
+      width: max-content;
+
+      tbody {
+        th, td {
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
+}
+
+
+#page-admin-plugins,
+#page-admin-filters
+{
+  [role="main"] {
+    overflow: auto;
+
+    .generaltable {
+      min-width: max-content;
+    }
+  }
+}
+
+#page-mod-assign-grading {
+
+  overflow-x: hidden;
+
+  .path-mod-assign #page, .path-mod-assign #page-content {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .no-overflow {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    table {
+      min-width: 100%;
+      width: max-content;
+    }
+  }
+
+  table td {
+    vertical-align: middle;
+
+    p {
+      min-width: 200px;
+      font-size: $font-size-xs;
+      line-height: 1.3;
+    }
+
+  }
+
+}
+
+  .managecompetencies {
+    td {
+      padding: 30px 10px 30px 80px;
+      border-radius: $border-radius;
+    }
+  }
+
+  #page-mod-assign-grading {
+    .path-mod-assign #page, .path-mod-assign #page-content {
+      position: relative;
+      overflow-x: hidden;
+    }
+  }
+
+  #printablediv { overflow-x: auto; }
+
+  [data-region="plan-competencies"] {
+    margin-top: 2rem!important;
+  }
+
+
+  #page-report-completion-index {
+    table#completion-progress {
+      width: 100%;
+    }
+
+    .export-actions {
+      margin: 0;
+      padding: 0;
+      display: inline-flex;
+
+      li {
+        margin-right: 10px;
+      }
+
+      a {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  } 
+
+
+  #uuresults {
+    display: block;
+    overflow-x: scroll;
+  }

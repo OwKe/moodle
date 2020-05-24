@@ -1,0 +1,39 @@
+/* reports.less */
+
+// The home for small tweaks to reports that don't require
+// changes drastic enough to pull in the full module css
+// and replace it completely.
+
+#page-report-participation-index .participationselectform div label { // Using 'div' here to override the report styles.css
+    display: inline-block;
+    margin: 0 5px; // No top and bottom margin with a 5px left and right for LTR and RTL.
+}
+
+#page-report-participation-index .participationselectform div label[for=menuinstanceid] {
+    margin-left: 0; // No left margin for LTR.
+}
+
+.helplinkpopup {
+  background-color: $theme-color-9;
+  padding: $spacer 1.5 * $spacer;
+
+  font-size: $font-size-sm;
+  color: $theme-color-3!important;
+
+  border-radius: $border-radius;
+
+  display: block;
+  margin-bottom: 2 * $spacer;
+  margin-top: 2 * $spacer;
+
+  .icon {
+    position: relative;
+    margin-right: 0.5rem!important;
+  }
+}
+
+.environmenttable {
+  .helplinkpopup {
+    margin: 0;
+  }
+}

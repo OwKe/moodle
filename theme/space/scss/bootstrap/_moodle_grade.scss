@@ -1,0 +1,690 @@
+// The class gradetreebox matches the pages displaying the gradebook
+// "Gradebook setup" > "Simple view" and "Full view".
+.gradetreebox {
+    h4 {
+        // Force back the base font-size to minimise width.
+        font-size: $font-size-base;
+    }
+
+    input[type=text],
+    select {
+        // Remove the bottom margin to gain height.
+        margin-bottom: 0;
+    }
+}
+
+.gradeitemheader {
+  .itemicon {
+    width: 30px!important;
+    margin-right: 0.5rem;
+  }
+}
+
+// Grade upgrade notice.
+.core_grades_notices {
+    .singlebutton {
+        display: inline-block;
+    }
+}
+
+.path-grade-report #maincontent + .urlselect {
+    position: absolute;
+    left: 40vw;
+}
+
+.path-grade-report-grader {
+    #region-main {
+        min-width: 100%;
+        width: auto;
+        & > .card {
+            width: auto;
+            overflow-x: initial;
+        }
+    }
+    [data-region="blocks-column"] {
+        width: 100%;
+        clear: both;
+    }
+
+    .gradeparent {
+      .excludedfloater {
+        font-weight: $font-weight-bold;
+        color: white;
+        font-size: 9px;
+        float: left;
+        background-color: $red-600;
+        padding: 3px 5px;
+        border-radius: $border-radius;
+      }
+    }
+}
+
+// Rubrics
+#page-grade-grading-manage {
+    #activemethodselector {
+        label {
+            display: inline-block;
+        }
+
+        .helptooltip {
+            margin-right: 0.5em;
+        }
+    }
+
+    .actions {
+        display: block;
+        text-align: center;
+        margin-bottom: 1em;
+
+        .action {
+            display: inline-block;
+            position: relative;
+            vertical-align: top;
+            width: auto;
+            text-align: center;
+            overflow: hidden;
+            margin: 0.5em;
+            padding: 1em;
+            border: 1px solid #aaa;
+
+            .action-text {
+                position: relative;
+                top: 0.4em;
+                font-size: 14px;
+                white-space: normal;
+            }
+        }
+    }
+}
+
+#page-grade-grading-form-rubric-edit {
+    .gradingform_rubric_editform .status {
+        font-size: 70%;
+    }
+}
+
+#rubric-rubric {
+    &.gradingform_rubric {
+        #rubric-criteria {
+            margin-bottom: 1em;
+            $rubricPadding: 6px;
+
+            .criterion {
+                .description {
+                    vertical-align: top;
+                    padding: $rubricPadding;
+                    font-weight: $font-weight-sm-bold;
+                    font-style: normal;
+
+                    textarea {
+                        margin-bottom: 0;
+                        height: 115px;
+                    }
+                }
+
+                .definition {
+                    textarea {
+                        width: 100%;
+                    }
+                }
+
+                .score {
+                    position: relative;
+                    font-size: $font-size-xs;
+                    font-style: normal;
+                    margin: 0 0 0.5rem;
+
+                    input {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .level {
+                    vertical-align: top;
+                    padding: $rubricPadding;
+
+                    .delete {
+                        margin: 1rem 0 0;
+
+                        background: $white;
+                        border: 1px solid #E4E8F0;
+                        box-shadow: $btn-box-shadow;
+                        border-radius: $border-radius;
+
+                        position: relative;
+
+                        width: 100%;
+                        height: 32px;
+
+                        clear: both;
+
+                        input {
+                            display: block;
+                            width: 100%;
+                            height: 15px;
+                            background-position: center;
+                            background-size: 12px;
+                            padding: 15px;
+
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .scorevalue {
+                    input {
+                        // Should handle at least three chars with room to spare.
+                        float: none;
+                        width: 70px;
+
+                        &.hiddenelement,
+                        &.pseudotablink {
+                            // Zero out the width if it's still in the block flow for some reason
+                            // when hidden
+                            width: 0;
+                        }
+                    }
+                }
+
+                .addlevel {
+                    vertical-align: middle;
+
+                    input {
+                      margin: 1rem;
+                      padding: .5rem 1rem .5rem 40px;
+
+                      border-radius: $border-radius;
+
+                      border: 1px solid #E4E8F0;
+                      box-shadow: $btn-box-shadow;
+
+                      height: auto;
+
+                      background: $white url([[pix:t/add]]) no-repeat 15px 15px;
+                      background-size: $font-size-xs;
+
+                      font-size: $font-size-sm;
+                      font-weight: $font-weight-sm-bold;
+                      color: $body-color-secondary;
+                    }
+                }
+            }
+        }
+
+        .addcriterion {
+            width: 100%;
+            margin: 1rem 0 2rem;
+            padding-bottom: 1rem;
+
+            border-bottom: 1px solid $gray-300;
+
+            input {
+                margin: 0;
+                padding: .5rem 1rem .5rem 40px;
+
+                border-radius: $border-radius;
+
+                border: 1px solid #E4E8F0;
+                box-shadow: $btn-box-shadow;
+
+                height: auto;
+
+                background: $white url([[pix:t/add]]) no-repeat 15px 17px;
+                background-size: $font-size-xs;
+
+                font-size: $font-size-sm;
+                font-weight: $font-weight-sm-bold;
+                color: $body-color-secondary;
+            }
+
+        }
+
+        .options {
+            clear: both;
+
+            .option {
+                label {
+                    margin: 0;
+                    padding: 0;
+                    font-size: inherit;
+                    font-weight: normal;
+                    line-height: 2em;
+                    color: inherit;
+                    text-shadow: none;
+                    background-color: transparent;
+                }
+
+                input {
+                    margin-left: 5px;
+                    margin-right: 12px;
+                }
+            }
+        }
+    }
+}
+
+.gradeitemdescription {
+    font-size: $font-size-xs;
+    font-weight: normal!important;
+    padding-top: 5px;
+    padding-left: 45px!important;
+}
+
+// Set up grades layout.
+.path-grade-edit-tree .setup-grades {
+    h4 {
+        margin: 0;
+
+        .icon {
+          font-size: 13px;
+          margin-right: 10px;
+        }
+    }
+
+    .column-rowspan {
+        padding: 0;
+        width: 24px;
+        min-width: 24px;
+        max-width: 24px;
+    }
+
+    .category td.column-name {
+        padding-left: 0;
+    }
+
+    td.column-name {
+        padding-left: 24px;
+        vertical-align: middle;
+    }
+
+    .category input[type="text"],
+    .category .column-range,
+    .categoryitem,
+    .courseitem {
+        font-weight: bold;
+    }
+
+    .emptyrow {
+        display: none;
+    }
+
+    .column-weight {
+        white-space: nowrap;
+
+        &.level3 {
+            padding-left: 37px;
+        }
+
+        &.level4 {
+            padding-left: 66px;
+        }
+
+        &.level5 {
+            padding-left: 95px;
+        }
+
+        &.level6 {
+            padding-left: 124px;
+        }
+
+        &.level7 {
+            padding-left: 153px;
+        }
+
+        &.level8 {
+            padding-left: 182px;
+        }
+
+        &.level9 {
+            padding-left: 211px;
+        }
+
+        &.level10 {
+            padding-left: 240px;
+        }
+    }
+
+    .column-range {
+        &.level2 {
+            padding-left: 37px;
+        }
+
+        &.level3 {
+            padding-left: 66px;
+        }
+
+        &.level4 {
+            padding-left: 95px;
+        }
+
+        &.level5 {
+            padding-left: 124px;
+        }
+
+        &.level6 {
+            padding-left: 153px;
+        }
+
+        &.level7 {
+            padding-left: 182px;
+        }
+
+        &.level8 {
+            padding-left: 211px;
+        }
+
+        &.level9 {
+            padding-left: 240px;
+        }
+
+        &.level10 {
+            padding-left: 269px;
+        }
+    }
+
+    &.generaltable {
+        .levelodd {
+            background-color: $table-bg-accent;
+        }
+
+        .moving {
+          background-color: $theme-color-6!important;
+          cursor: ns-resize;
+        }
+
+        .leveleven {
+            background-color: $table-bg;
+            font-weight: $font-weight-base;
+
+            vertical-align: middle;
+        }
+    }
+}
+
+/* Mod */
+.setup-grades {
+  vertical-align: middle;
+}
+
+/**
+ * Grader report.
+ */
+
+.path-grade-report {
+    .gradeparent {
+
+        tr .cell {
+            background-color: $pagination-bg;
+        }
+
+        table,
+        .cell {
+            border: none!important;
+            border-color: $table-border-color
+        }
+
+        td, th {
+          padding: 0.5rem!important;
+        }
+
+        .header.user {
+          text-transform: none;
+
+          img.userpicture {
+            width: 30px;
+            height: 30px;
+            margin: 0 0.5rem 0 0;
+          }
+
+          a {
+            font-weight: $font-weight-sm-bold;
+          }
+        }
+
+        tr:nth-of-type(even) .cell,
+        .floater .cell,
+        .avg {
+            background-color: $gray-lightest;
+        }
+
+        .floater {
+          z-index: 99999;
+
+          a {
+            font-weight: $font-weight-sm-bold;
+            text-decoration: none;
+
+            color: $table-color;
+
+            img {
+              margin-right: 0.5rem;
+            }
+          }
+
+          .cell {
+            display: flex;
+            align-items: center;
+            padding: 10px .5rem;
+            margin: 0;
+
+            background-color: $table-bg;
+            box-shadow: $box-shadow-sm;
+            border-radius: $border-radius;
+          }
+
+        }
+
+        table .clickable {
+            cursor: pointer;
+        }
+    }
+}
+
+.path-grade-report .gradeparent td,
+.path-grade-report .gradeparent th {
+  padding: .5rem;
+}
+
+/**
+ * User report.
+ */
+.path-grade-report-user .user-grade {
+    border: none;
+
+    &.generaltable {
+        .levelodd {
+            background-color: $table-bg-accent;
+        }
+
+        .leveleven {
+            background-color: $table-bg;
+        }
+    }
+}
+
+//reset css
+.path-grade-report-user .view_users_selector,
+.path-grade-report-user #graded_users_selector
+{
+  div.singleselect {
+    margin: 0 0 0 0.5rem!important;
+  }
+}
+
+
+.grade-report-user {
+  overflow-x: auto;
+
+  table {
+    min-width: max-content;
+    width: 100%;
+  }
+}
+
+/**
+ * Single view.
+ */
+div.singleselect  {
+   margin: $spacer 0;
+}
+
+.path-grade-report-singleview input[name^="finalgrade"] {
+    width: 80px;
+}
+
+.gradeimport_data_area {
+  width: auto;
+  height: auto;
+}
+
+#page-grade-report-grader-index {
+  [role="main"] {
+    h3 {
+      margin: 2 * $spacer 0;
+    }
+  }
+}
+
+.path-grade-report-grader {
+
+  .pagination-letter, .pagination {
+    .page-link {
+      padding: 14px 16px;
+      font-size: 12px;
+      @include media-breakpoint-only(sm) {
+        padding: 8px;
+      }
+    }
+  }
+
+  @include media-breakpoint-only(sm) {
+    .page-link {
+      padding: 5px;
+    }
+
+  }
+
+  .gradeitemheader {
+    vertical-align: middle!important;
+  }
+
+}
+
+
+.path-grade-report-grader .gradeparent .user.cell {
+  min-width: 320px;
+  align-items: center;
+  display: inline-flex;
+}
+
+.path-mod-assign [data-region="grade-panel"] .popout>.col-md-3 {
+  margin: 0!important;
+}
+
+@include media-breakpoint-between(sm,md) {
+  .path-grade-report-grader .gradeparent {
+    overflow: scroll;
+  }
+}
+
+
+.path-grade-report-grader .gradeparent select {
+  padding: 1rem 1.9rem 1rem 1.25rem;
+}
+
+#page-grade-report-singleview-index {
+  .singleselect {
+    margin: 0.25rem 0;
+  }
+
+  .singleselect.d-inline-block {
+    select {
+      margin: 0 0 0 .25rem;
+    }
+  }
+}
+
+.path-grade-report-grader .gradeparent .quickfeedback {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0;
+
+  font-size: $font-size-xs;
+  color: $body-color;
+}
+
+.gradingform_rubric.editor .criterion .controls {
+  margin: 0;
+
+  input {
+    display: block;
+    width: 40px!important;
+    height: 40px!important;
+
+    padding: .5rem 1rem;
+    margin: 0.25rem!important;
+
+    border-radius: $border-radius;
+
+    border: 1px solid #E4E8F0;
+    box-shadow: $btn-box-shadow;
+
+    height: auto;
+
+    background-color: $white!important;
+    background-size: $font-size-xs;
+    background-position: center center!important;
+
+    font-size: $font-size-sm;
+    font-weight: $font-weight-sm-bold;
+    color: $body-color-secondary;
+  }
+}
+
+.gradingform_rubric.editor .criterion .controls .delete input {
+  background-size: 12px;
+}
+
+.gradingform_rubric .criteria {
+  display: table;
+  min-width: 100%;
+}
+
+.gradingform_rubric {
+  .form-control,
+  input[type=text],
+  input[type=email],
+  textarea {
+    padding: 0.5rem;
+    font-size: $font-size-xs;
+  }
+}
+
+.gradingform_rubric .plainvalue.empty .textvalue {
+  font-size: $font-size-xs;
+  font-style: italic;
+}
+
+.gradingform_rubric .plainvalue {
+  font-size: $font-size-xs;
+  line-height: 1.3;
+}
+
+@include media-breakpoint-down(md) {
+  #rubric-rubric {
+    overflow-x: auto;
+  }
+}
+
+
+#page-grade-report-singleview-index {
+
+  .generaltable {
+    min-width: max-content;
+  }
+  
+}
+
+.path-grade-report-grader .gradeparent .floating {
+  max-width: 320px;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>completion-auto-enabled</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="completion-auto-enabled" fill-rule="nonzero">
+            <path d="M20,0 L20,0 C31.045695,0 40,8.954305 40,20 L40,20 C40,31.045695 31.045695,40 20,40 L20,40 C8.954305,40 0,31.045695 0,20 L0,20 C0,8.954305 8.954305,0 20,0 Z" id="Rectangle-9" fill="#D6EDFC"></path>
+            <path d="M16.9179863,26.7381538 L11.255159,21.0753266 C10.914947,20.7351145 10.914947,20.1834993 11.255159,19.8432533 L12.4871983,18.61118 C12.8274103,18.2709339 13.3790596,18.2709339 13.7192716,18.61118 L17.5340229,22.4258973 L25.7047952,14.255159 C26.0450072,13.914947 26.5966564,13.914947 26.9368685,14.255159 L28.1689077,15.4872323 C28.5091198,15.8274444 28.5091198,16.3790596 28.1689077,16.7193056 L18.1500596,26.7381878 C17.8098135,27.0783999 17.2581983,27.0783999 16.9179863,26.7381538 L16.9179863,26.7381538 Z" id="Path" fill="#0099FF"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,71 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    Page navbar.
+}}
+
+<div id="topBar5" class="s-top {{^hiddensidebar}}s-top--sidebar{{/hiddensidebar}} justify-content-center">
+
+  {{> theme_space/navbar-mobile }}
+
+  <div class="s-top-container">
+    <div class="c-container c-top-additional row no-gutters justify-content-between align-items-center">
+      {{#ShowTopBarText}}<div class="c-top-text mx-2">{{{TopBarText}}}</div>{{/ShowTopBarText}}
+      {{#output.render_lang_menu}}<div class="c-lang-menu m-0">{{{ output.render_lang_menu }}}</div>{{/output.render_lang_menu}}
+    </div>
+    <div id="navBar" class="c-container row no-gutters py-md-1 justify-content-between align-items-center">
+
+      <div data-region="drawer-toggle" class="d-sm-none d-md-inline ml-md-0 mr-md-3">
+          <button type="button" class="sidebar-btn" data-side="left">
+            <i class="fas fa-equals" id="sidebarBtn"></i>
+          </button>
+      </div>
+
+      {{#ShowCustomNav}}<div class="c-custom-nav-container mx-md-0">{{> theme_space/custom-nav }}</div>{{/ShowCustomNav}}
+
+      {{#customtopnavhtml}}
+      <div class="c-custom-main-nav navbar navbar-expand-md p-0 mx-md-0">
+        <nav class="c-custom-main-nav navbar navbar-expand-md p-0">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-angle-down"></i>
+          </button>
+ 
+          {{{customtopnavhtml}}}
+
+        </nav>
+      </div>
+      {{/customtopnavhtml}}
+
+      <div class="c-nav-user nav ml-sm-center ml-md-auto align-items-center justify-content-center">
+
+          <div class="search-box d-block">
+          {{{ output.search_box }}}
+          </div>
+
+          <!-- navbar_plugin_output -->
+          <div class="top-icons-nav c-menu-sep mr-3">{{{ output.navbar_plugin_output }}}</div>
+
+          <!-- user_menu -->
+          <div class="c-user-menu">
+              {{{ output.user_menu }}}
+          </div>
+
+      </div>
+      <!-- search_box -->
+    </div>
+  </div>
+</div>

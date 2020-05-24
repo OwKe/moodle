@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>completion-manual-y</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="completion-manual-y" fill-rule="nonzero">
+            <g id="Rectangle-9" fill="#4FC976">
+                <path d="M20,0 L20,0 C31.045695,0 40,8.954305 40,20 L40,20 C40,31.045695 31.045695,40 20,40 L20,40 C8.954305,40 0,31.045695 0,20 L0,20 C0,8.954305 8.954305,0 20,0 Z" id="path-1"></path>
+            </g>
+            <g id="check-solid-(1)" transform="translate(11.000000, 14.000000)" fill="#FFFFFF">
+                <path d="M5.91799476,12.7414974 L0.255167539,7.07867016 C-0.0850445026,6.73845812 -0.0850445026,6.18684293 0.255167539,5.84659686 L1.48720681,4.61452356 C1.82741885,4.27427749 2.37906806,4.27427749 2.7192801,4.61452356 L6.53403141,8.42924084 L14.7048037,0.258502618 C15.0450157,-0.0817094241 15.5966649,-0.0817094241 15.936877,0.258502618 L17.1689162,1.49057592 C17.5091283,1.83078796 17.5091283,2.38240314 17.1689162,2.72264921 L7.15006806,12.7415314 C6.80982199,13.0817435 6.25820681,13.0817435 5.91799476,12.7414974 L5.91799476,12.7414974 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>
