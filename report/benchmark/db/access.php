@@ -1,4 +1,4 @@
-<?PHP
+<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,17 +15,24 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information. When a new version is released the version is incremented
+ * Benchmark report capabilities are defined here.
  *
- * @package    qtype_gapfill
- * @copyright  2019 Marcus Green
+ * @package    report_benchmark
+ * @copyright  2016 onwards Mickaël Pannequin {@link mickael.pannequin@gmail.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @link       https://github.com/mikasmart/moodle-report_benchmark Source on GitHub
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'qtype_gapfill';
-$plugin->version  = 2020052400;
-$plugin->requires = 2016052311;  // Moodle 3.1.11.
-$plugin->release = '1.978';
-$plugin->maturity  = MATURITY_STABLE;
+$capabilities = array(
+    'report/benchmark:view' => array(
+        'riskbitmask' => RISK_DATALOSS,
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_SYSTEM,
+        'archetypes' => array(
+            'manager' => CAP_ALLOW
+        ),
+        'clonepermissionsfrom' => 'report/performance:view'
+    )
+);

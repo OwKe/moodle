@@ -1,4 +1,4 @@
-<?PHP
+<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,17 +15,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information. When a new version is released the version is incremented
+ * Settings for the benchmark report
  *
- * @package    qtype_gapfill
- * @copyright  2019 Marcus Green
+ * @package    report_benchmark
+ * @copyright  2016 onwards Mickaël Pannequin {@link mickael.pannequin@gmail.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die;
 
-$plugin->component = 'qtype_gapfill';
-$plugin->version  = 2020052400;
-$plugin->requires = 2016052311;  // Moodle 3.1.11.
-$plugin->release = '1.978';
-$plugin->maturity  = MATURITY_STABLE;
+$ADMIN->add('reports',
+        new admin_externalpage('reportbenchmark', get_string('benchmark', 'report_benchmark'),
+        $CFG->wwwroot.'/report/benchmark/index.php', 'moodle/site:config'));
+
+// No report settings Moodle 2.2.
+$settings = null;

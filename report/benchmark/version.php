@@ -1,4 +1,4 @@
-<?PHP
+<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,17 +15,23 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information. When a new version is released the version is incremented
+ * Version of the benchmark report
  *
- * @package    qtype_gapfill
- * @copyright  2019 Marcus Green
+ * @package    report_benchmark
+ * @copyright  2016 onwards Mickaël Pannequin {@link m.pannequin@xperteam.fr}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die;
 
-$plugin->component = 'qtype_gapfill';
-$plugin->version  = 2020052400;
-$plugin->requires = 2016052311;  // Moodle 3.1.11.
-$plugin->release = '1.978';
-$plugin->maturity  = MATURITY_STABLE;
+// Avoid warning message in Moodle 2.5 and below.
+if (!isset($plugin)) {
+    $plugin = new stdClass();
+}
+
+// Plugin informations.
+$plugin->requires   = 2011120500; // Requires this Moodle version 2.0 or later.
+$plugin->version    = 2020022400; // The current module version (Date: YYYYMMDDXX).
+$plugin->component  = 'report_benchmark'; // Full name of the plugin (used for diagnostics).
+$plugin->maturity   = MATURITY_STABLE;
+$plugin->release    = 'v1.4.0';
