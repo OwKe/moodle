@@ -42,7 +42,7 @@
             display: inline-flex;
             font-size: $font-size-xs;
             color: $body-color;
-        
+
             margin-right: 1rem;
           }
 
@@ -383,28 +383,28 @@ body.path-question-type {
     background-color: $yellow-300;
     font-size: $font-size-xs;
     font-weight: $font-weight-sm-bold;
-    color: $yellow-900; 
+    color: $yellow-900;
   }
 }
 
 .que.correct {
     .state {
       background-color: $green-100;
-      color: $green-800;     
+      color: $green-800;
     }
 }
 
 .que.incorrect {
     .state {
       background-color: $red-200;
-      color: $red-700;      
+      color: $red-700;
   }
 }
 
 .que.notanswered {
   .state {
     background-color: $red-200;
-    color: $red-700;   
+    color: $red-700;
   }
 }
 
@@ -915,8 +915,11 @@ body.path-question-type .mform fieldset.hidden {
 #page-mod-quiz-edit {
 
   .add-menu-outer {
-    padding: 8px;
+    padding: 8px 0;
     line-height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   .section-heading {
@@ -930,18 +933,17 @@ body.path-question-type .mform fieldset.hidden {
     .activity {
 
       .editing_move {
+        position: relative !important;
         background-color: $white;
         border-radius: $border-radius;
         border: 1px solid #E4E8F0;
         box-shadow: $btn-box-shadow;
 
-        height: 100px;
-        top: calc(50% - 50px);
-
+        height: 45px;
         padding: 8px;
         line-height: 0;
 
-        display: flex;
+        display: inline-flex;
         align-items: center;
 
        .iconsmall {
@@ -955,7 +957,7 @@ body.path-question-type .mform fieldset.hidden {
         align-items: center;
 
         position: relative;
-        margin: 20px 110px 0;
+        margin: 0;
         padding: 0;
         background-color: transparent;
       }
@@ -974,7 +976,7 @@ body.path-question-type .mform fieldset.hidden {
       li.activity {
         background-color: $gray-100;
 
-        padding: 1rem;
+        padding: 0 15px;
         margin: 0.25rem 0;
         border-radius: $border-radius;
 
@@ -982,11 +984,16 @@ body.path-question-type .mform fieldset.hidden {
 
         &.page {
           border-radius: 0;
+          padding: 15px 0 !important;
 
           h4 {
            font-style: 1.25rem;
            font-weight: $font-weight-sm-bold;
           }
+        }
+
+        .mod-indent {
+          display: none !important;
         }
 
         .page_split_join_wrapper {
@@ -995,13 +1002,16 @@ body.path-question-type .mform fieldset.hidden {
           top: calc(50% - 18px);
 
           a {
-           padding: 2px;
+            padding: 2px;
+            top: 6px !important;
           }
         }
 
         .instancemaxmarkcontainer {
           display: inline-flex;
-          padding: 1rem 0.5rem 1.35rem 1rem!important;
+          padding: 10px !important;
+          margin: 3px !important;
+
           background-color: $white;
           border-radius: $border-radius;
 
@@ -1041,25 +1051,30 @@ body.path-question-type .mform fieldset.hidden {
     }
 
     .activityinstance {
-      display: block;
+
+      display: inline-block !important;
       position: relative!important;
-      left: 40px!important;
+      left: 0!important;
+      width: 79% !important;
 
       span.instancename {
-        overflow: inherit;
+        overflow: hidden;
         text-overflow: inherit;
         height: auto;
-        white-space: normal;
+        white-space: nowrap;
+        display: inline-flex;
+        width: 95% !important;
+
 
         .icon {
-          margin: 4px 0 20px;
+          margin: 0;
         }
       }
 
       img.activityicon {
        width: 25px;
        height: 25px;
-       margin: 0 20px;
+       margin-right: 20px;
      }
 
     }
@@ -1088,17 +1103,14 @@ body.path-question-type .mform fieldset.hidden {
   }
 
   .slotnumber {
-    margin-left: 8px;
-    margin-bottom: 0.5rem;
+    margin: 0 20px;
     width: 20px;
     height: 22px;
 
     background-color: $black;
     border-radius: 30px;
 
-    position: absolute;
-    left: 0;
-    top: 0;
+    position: relative;
 
     font-size: 11px;
     font-weight: $font-weight-bold;
@@ -1230,9 +1242,15 @@ div[id^=fitem_id_][id*=fraction_] {
         .questionname {
           font-size: $font-size-base;
           color: $body-color;
+          margin: 0 20px;
         }
       }
-    } 
+    }
+
+    div {
+
+
+    }
   }
 }
 
@@ -1241,7 +1259,7 @@ div[id^=fitem_id_][id*=fraction_] {
   float: none;
 }
 
-#page-mod-quiz-attempt .submitbtns, 
+#page-mod-quiz-attempt .submitbtns,
 #page-mod-quiz-review .submitbtns {
   padding-top: 0;
   input { margin-right: 10px; }
@@ -1298,7 +1316,7 @@ div[id^=fitem_id_][id*=fraction_] {
   #advancedsearch {
     margin-top: 2rem;
   }
-  
+
 }
 
 #fitem_id_maxmark {
@@ -1321,4 +1339,10 @@ div[id^=fitem_id_][id*=fraction_] {
 .gradedattempt, .gradedattempt td {
   background-color: $theme-color-9!important;
   border-color: $theme-color-9!important;
+}
+
+#page-mod-quiz-edit li.activity > div {
+  position: relative;
+  display: flex;
+  align-items: center;
 }

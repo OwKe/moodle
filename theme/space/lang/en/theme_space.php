@@ -1246,9 +1246,9 @@ defined('MOODLE_INTERNAL') || die();
     $string['showfpblock12hr'] = 'Show Testimonials<br />Bottom separator';
     $string['showfpblock12hr_desc'] = '<hr class="mb-0 mt-4"/>';   
 
-    $string['hintro'] = '<div class="d-block text-center"><br /><br />Space Moodle Theme<br /><small>by Rosea Themes</small><br /><div class="badge badge-info">version 1.9.8</div>';
-    $string['hintro_desc'] = '<div class="col-sm-12 col-md-8 my-sm-2 my-md-5 mx-auto"><a class="btn btn-secondary mb-1" href="https://docs.space.rosea.io" target="_blank"><i class="fas fa-book mr-2"></i>  Documentation</a>
-    <a class="mx-2 mb-1 btn btn-secondary" href="https://themeforest.net/item/space-moodle-template/22579922/support" target="_blank"><i class="far fa-life-ring mr-2"></i>  Theme Support</a></div><hr /></div>';
+    $string['hintro'] = '<div class="d-block text-center"><br /><br />Moodle Theme<br /><small>by OK</small><br /><div class="badge badge-info">version 1</div>';
+    $string['hintro_desc'] = '<div class="col-sm-12 col-md-8 my-sm-2 my-md-5 mx-auto"><a class="btn btn-secondary mb-1" href="#" target="_blank"><i class="fas fa-book mr-2"></i>  Documentation</a>
+    <a class="mx-2 mb-1 btn btn-secondary" href="#" target="_blank"><i class="far fa-life-ring mr-2"></i>  Theme Support</a></div><hr /></div>';
 
 
 
