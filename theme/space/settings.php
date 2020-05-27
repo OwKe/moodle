@@ -72,10 +72,15 @@ if ($ADMIN->fulltree) {
             foreach ($files as $file) {
             $choices[$file->get_filename()] = $file->get_filename();
             }
+
+            // GATEHOUSE
+            $choices['gatehouse.scss'] = 'Gatehouse';
+
             // These are the built in presets.
             $choices['default.scss'] = 'Demo #1';
             $choices['demo2.scss'] = 'Demo #2';
             $choices['demo3.scss'] = 'Demo #3';
+
 
             $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
             $setting->set_updatedcallback('theme_reset_all_caches');

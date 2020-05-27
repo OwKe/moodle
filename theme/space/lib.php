@@ -168,6 +168,8 @@ function theme_space_get_main_scss_content($theme) {
         $scss .= file_get_contents($CFG->dirroot . '/theme/space/scss/preset/default.scss');
     } else if ($filename == 'demo2.scss') {
         $scss .= file_get_contents($CFG->dirroot . '/theme/space/scss/preset/demo2.scss');
+    } else if ($filename == 'gatehouse.scss') {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/space/scss/preset/gatehouse.scss');
     } else if ($filename == 'demo3.scss') {
         $scss .= file_get_contents($CFG->dirroot . '/theme/space/scss/preset/demo3.scss');
     } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_space', 'preset', 0, '/', $filename))) {

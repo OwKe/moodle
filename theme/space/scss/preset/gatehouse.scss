@@ -1,0 +1,79 @@
+// Import All of Bootstrap
+@import "bootstrap";
+
+// GATEHOUSE CUSTOM CHANGES
+
+#page-mod-quiz-attempt {
+
+  // CADETS = category-2
+
+  &.category-2 {
+
+    .que {
+
+      background: #f8f8f8;
+      border-radius: 10px;
+      padding: 30px 40px 60px;
+
+      .no {
+        margin: 0 !important;
+      }
+
+      .grade, .state {
+        display: none;
+      }
+
+    }
+
+  }
+
+}
+
+// MEDIA PLAYER
+
+//.mediaplugin.mediaplugin_videojs {
+//
+//  background-color: #9fe7c9;
+//  padding: 10px;
+//  border-radius: 5px;
+//  max-width: 50%;
+//
+//  .video-js .vjs-control-bar {
+//    background-color: rgb(159, 231, 201);
+//  }
+//
+//}
+//
+//.vjs-icon-play:before, .video-js .vjs-play-control .vjs-icon-placeholder:before, .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+//  position: relative;
+//  top: auto;
+//  border: 0 !important;
+//}
+//
+//.video-js .vjs-volume-bar {
+//  margin: 1.35em .45em !important;
+//}
+//
+//#yui_3_17_2_1_1590573548368_231 {
+//  display: flex;
+//  align-items: center;
+//}
+//
+//.vjs-slider-horizontal .vjs-volume-level::before {
+//  top: -3px !important;
+//}
+//
+//
+
+
+#page-mod-quiz-attempt .submitbtns input,
+#page-mod-quiz-review .submitbtns input {
+  margin-right:30px;
+  width: 250px;
+}
+
+#page-mod-quiz-attempt .submitbtns,
+#page-mod-quiz-review .submitbtns {
+  text-align:center;
+  padding: 2em !important;
+}
