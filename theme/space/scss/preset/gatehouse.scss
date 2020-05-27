@@ -9,18 +9,23 @@
 
   &.category-2 {
 
-    .que {
+    form {
+      background-color: white;
 
-      background: #f8f8f8;
-      border-radius: 10px;
-      padding: 30px 40px 60px;
+      .que {
 
-      .no {
-        margin: 0 !important;
-      }
+        background: #f8f8f8;
+        border-radius: 10px;
+        padding: 30px 40px 60px;
 
-      .grade, .state {
-        display: none;
+        .no {
+          margin: 0 !important;
+        }
+
+        .grade, .state {
+          display: none;
+        }
+
       }
 
     }
