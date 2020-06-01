@@ -1,9 +1,40 @@
 // Import All of Bootstrap
 @import "bootstrap";
 
-// GATEHOUSE CUSTOM CHANGES
 
-#page-mod-quiz-attempt, #page-mod-quiz-view {
+// |--------------------------------------------------------------------------
+// | LOGIN SIGN UP
+// |--------------------------------------------------------------------------
+
+#page-login-signup {
+
+  #fitem_id_city {
+    display: none;
+  }
+
+  #fitem_id_country {
+    display: none;
+  }
+
+}
+
+// |--------------------------------------------------------------------------
+// | QUIZ VIEW
+// |--------------------------------------------------------------------------
+
+#page-mod-quiz-view {
+
+  .quizinfo {
+    display: none;
+  }
+
+}
+
+// |--------------------------------------------------------------------------
+// | QUIZ ATTEMPT
+// |--------------------------------------------------------------------------
+
+#page-mod-quiz-attempt {
 
   // CADETS = category-2
 
@@ -30,6 +61,7 @@
       // MAIN AREA
 
       &#region-main {
+
         form {
 
           background-color: white;
@@ -113,16 +145,12 @@
                         font-size: 18px;
                         font-weight: 700;
                         margin: 0 10px;
-
                       }
 
                       .vjs-volume-panel {
 
                         width: 10em !important;
 
-                        .vjs-mute-control {
-
-                        }
                         .vjs-volume-control {
 
                           width: 5em !important;
@@ -136,43 +164,29 @@
                       }
 
                       .vjs-remaining-time {
-
                         font-size: 15px;
                         font-weight: 800;
                         display: flex;
                         align-items: center;
-
                       }
 
                       .vjs-picture-in-picture-control {
                         display: none !important;
                       }
-
                     }
-
 
                     .vjs-slider-horizontal .vjs-volume-level::before {
                       top: -3px !important;
                     }
-
                   }
-
-
                 }
               }
-
-
             }
-
-
-
             .que.ddimageortext .drag {
               background-color: transparent !important;
               border: none !important;
             }
-
           }
-
         }
       }
 
@@ -271,7 +285,6 @@
   }
 
 }
-
 
 #page-mod-quiz-attempt .submitbtns input,
 #page-mod-quiz-review .submitbtns input {

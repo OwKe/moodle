@@ -87,17 +87,10 @@
 </body>
 </html>
 {{#js}}
-
     M.util.js_pending('theme_space/loader');
     require(['theme_space/loader'], function() {
     M.util.js_complete('theme_space/loader');
     });
-
-    require(['jquery'], function($) {
-    $("#page-footer").attr('style', 'background-color: red !important;');
-    })
-
-
 {{/js}}
 
 <script>
@@ -130,7 +123,7 @@
             $( ".vjs-play-control" ).css("visibility", "hidden");
         });
 
-        play_counters[index] = 2;
+        play_counters[index] = 1;
 
         $(this).on('ended', function (e) {
 
