@@ -1034,4 +1034,51 @@ class core_renderer extends \core_renderer {
     public function secure_login_info() {
         return $this->login_info(false);
     }
+
+    // |--------------------------------------------------------------------------
+    // | GATEHOUSE CUSTOM
+    // |--------------------------------------------------------------------------
+
+    public function get_course_image_url() {
+
+        global $COURSE;
+        $url = '';
+
+        $context = context_course::instance( $COURSE->id );
+        $fs = get_file_storage();
+        $files = $fs->get_area_files( $context->id, 'course', 'overviewfiles', 0 );
+
+        foreach ( $files as $f )
+        {
+            if ( $f->is_valid_image() ) {
+                $url = moodle_url::make_pluginfile_url( $f->get_contextid(), $f->get_component(), $f->get_filearea(), null, $f->get_filepath(), $f->get_filename(), false );
+            }
+        }
+
+        return $url;
+    }
+
+
+    public function get_quiz_name() {
+
+        global $DB;
+
+        // QUIZ
+
+        $a_ID = optional_param('attempt',  0, PARAM_INT);  // Attempt ID.
+        $quiz_ID = $DB->get_field('quiz_attempts', 'quiz', ['id' => $a_ID], $strictness=IGNORE_MISSING);
+        $quiz_name = $DB->get_field('quiz', 'name', ['id' => $quiz_ID], $strictness=IGNORE_MISSING);
+
+        // COURSE
+
+        $cmid = optional_param('cmid',  0, PARAM_INT);  // Couse Module ID.
+        $course_ID = $DB->get_field('course_modules', 'course', ['id' => $cmid], $strictness=IGNORE_MISSING);
+        $course_short_name = $DB->get_field('course', 'shortname', ['id' => $course_ID], $strictness=IGNORE_MISSING);
+        
+        return html_writer::tag('h1', $course_short_name.' : '.$quiz_name);
+
+    }
+
+
+
 }

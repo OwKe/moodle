@@ -3,72 +3,274 @@
 
 // GATEHOUSE CUSTOM CHANGES
 
-#page-mod-quiz-attempt {
+#page-mod-quiz-attempt, #page-mod-quiz-view {
 
   // CADETS = category-2
 
   &.category-2 {
 
-    form {
-      background-color: white;
+    .navbar {
 
-      .que {
+      padding: 25px 30px 0;
+      align-items: start;
 
-        background: #f8f8f8;
-        border-radius: 10px;
-        padding: 30px 40px 60px;
-
-        .no {
-          margin: 0 !important;
+      .logo {
+        img {
+          width: 235px;
         }
-
-        .grade, .state {
-          display: none;
+        .main {
+          width: 265px;
         }
-
       }
 
     }
 
+    section {
+
+      // MAIN AREA
+
+      &#region-main {
+        form {
+
+          background-color: white;
+
+          .horizontal_que div {
+            display: inline-block;
+          }
+
+          .que {
+
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 30px 40px 60px;
+
+            .info {
+
+              .no {
+                margin: 0 !important;
+              }
+
+              .grade, .state {
+                display: none;
+              }
+
+            }
+
+            .content {
+
+              .qtext {
+
+                // MEDIA PLAYER
+
+                .mediaplugin {
+
+                  background-color: $purple-800;
+                  padding: 10px;
+                  border-radius: 5px;
+                  max-width: 50%;
+
+                  .video-js {
+
+                    .vjs-control-bar {
+
+                      background-color: $purple-800;
+                      align-items: center;
+
+                      #stop-skip {
+                        position: absolute;
+                        width: 78%;
+                        height: 50px;
+                        top: -10px;
+                        right: -10px;
+                        z-index: 1;
+                      }
+
+                      .vjs-playing {
+                        visibility: hidden;
+                      }
+
+                      .vjs-play-control {
+
+                        .vjs-icon-placeholder:before {
+                          position: relative;
+                          top: auto;
+                          border: 0 !important;
+                          font-size: 30px;
+                          line-height: 1;
+                        }
+
+                      }
+
+                      .vjs-progress-control {
+                        z-index: 0;
+
+                        .vjs-progress-holder {
+                          background-color: rgba(255, 255, 255, 0.25);
+                        }
+                      }
+
+                      #listen_counter {
+                        font-size: 18px;
+                        font-weight: 700;
+                        margin: 0 10px;
+
+                      }
+
+                      .vjs-volume-panel {
+
+                        width: 10em !important;
+
+                        .vjs-mute-control {
+
+                        }
+                        .vjs-volume-control {
+
+                          width: 5em !important;
+                          opacity: 1 !important;
+
+                          .vjs-volume-bar {
+                            margin: 1.35em .45em !important;
+                            margin-left: -5px !important;
+                          }
+                        }
+                      }
+
+                      .vjs-remaining-time {
+
+                        font-size: 15px;
+                        font-weight: 800;
+                        display: flex;
+                        align-items: center;
+
+                      }
+
+                      .vjs-picture-in-picture-control {
+                        display: none !important;
+                      }
+
+                    }
+
+
+                    .vjs-slider-horizontal .vjs-volume-level::before {
+                      top: -3px !important;
+                    }
+
+                  }
+
+
+                }
+              }
+
+
+            }
+
+
+
+            .que.ddimageortext .drag {
+              background-color: transparent !important;
+              border: none !important;
+            }
+
+          }
+
+        }
+      }
+
+      // SIDEBAR
+
+      &:not(#region-main) {
+
+        #mod_quiz_navblock {
+
+          margin-top: 20px;
+          background-color: transparent;
+          border: none;
+
+          .card-body {
+            padding: 0;
+
+            .card-title {
+              padding: 1.5rem 2rem;
+              background-color: #f8f8f8;
+              margin-bottom: 0;
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              font-size: 18px;
+            }
+
+            .card-text {
+
+              padding: 0;
+              margin-top: 0 !important;
+
+              .qn_buttons {
+                padding: 0 2rem 1.5rem;
+                background-color: #f8f8f8;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+              }
+
+              .othernav {
+
+                .endtestlink {
+                  margin: 1rem 0;
+                }
+
+                #quiz-timer {
+
+                  padding: 1.5rem 2rem;
+                  background-color: #f8f8f8;
+                  border-radius: 10px;
+                  font-size: 18px;
+
+                  display: block;
+                  position: fixed;
+                  bottom: 25px;
+                  right: 0;
+                  margin: 20px 30px 0 40px;
+                  z-index: 1;
+                  width: 255px;
+                  text-align: left;
+
+                  span {
+                    display: block;
+                    font-size: 25px;
+                  }
+
+                  &:after {
+                    content: "";
+                    position: absolute;
+                    top: -30px;
+                    right: -30px;
+                    width: 150px;
+                    height: 145px;
+                    background:url([[pix:theme|cadets/Robot-timer]]);
+                    background-size: cover;
+                  }
+
+                }
+
+                .singlebutton {
+                  margin: 2.2rem 0;
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+      }
+
+    }
+
+    footer {
+      background-color: #fff !important;
+    }
   }
 
 }
-
-// MEDIA PLAYER
-
-//.mediaplugin.mediaplugin_videojs {
-//
-//  background-color: #9fe7c9;
-//  padding: 10px;
-//  border-radius: 5px;
-//  max-width: 50%;
-//
-//  .video-js .vjs-control-bar {
-//    background-color: rgb(159, 231, 201);
-//  }
-//
-//}
-//
-//.vjs-icon-play:before, .video-js .vjs-play-control .vjs-icon-placeholder:before, .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
-//  position: relative;
-//  top: auto;
-//  border: 0 !important;
-//}
-//
-//.video-js .vjs-volume-bar {
-//  margin: 1.35em .45em !important;
-//}
-//
-//#yui_3_17_2_1_1590573548368_231 {
-//  display: flex;
-//  align-items: center;
-//}
-//
-//.vjs-slider-horizontal .vjs-volume-level::before {
-//  top: -3px !important;
-//}
-//
-//
 
 
 #page-mod-quiz-attempt .submitbtns input,

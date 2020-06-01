@@ -141,8 +141,8 @@ abstract class qtype_multichoice_renderer_base extends qtype_with_combined_feedb
         $result .= html_writer::tag('div', $this->prompt(), array('class' => 'prompt'));
 
         $layout_classes = [
-            0 => 'vertical',
-            1 => 'horizontal'
+            0 => 'vertical_que',
+            1 => 'horizontal_que'
         ];
 
         $result .= html_writer::start_tag('div', array('class' => 'answer '.$layout_classes[$question->layout]));

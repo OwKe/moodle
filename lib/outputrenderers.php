@@ -602,6 +602,7 @@ class core_renderer extends renderer_base {
             $attributes['xmlns'] = 'http://www.w3.org/1999/xhtml';
         }
 
+        $attributes['translate']  = 'no';
         // Give plugins an opportunity to add things like xml namespaces to the html element.
         // This function should return an array of html attribute names => values.
         $pluginswithfunction = get_plugins_with_function('add_htmlattributes', 'lib.php');

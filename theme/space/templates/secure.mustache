@@ -51,7 +51,7 @@
             <div class="col-12 py-3">
                 <div class="page-context-header">
                     <div class="page-header-headings">
-                        {{{ output.page_heading }}}
+                        {{{ output.get_quiz_name }}}
                     </div>
                 </div>
             </div>
@@ -61,15 +61,15 @@
             <div id="region-main-box" class="col-12">
                 <section id="region-main" {{#hasblocks}}class="has-blocks"{{/hasblocks}}>
                     <div class="card card-block">
-                    {{{ output.course_content_header }}}
-                    {{{ output.main_content }}}
-                    {{{ output.course_content_footer }}}
+                        {{{ output.course_content_header }}}
+                        {{{ output.main_content }}}
+                        {{{ output.course_content_footer }}}
                     </div>
                 </section>
                 {{#hasblocks}}
-                <section data-region="blocks-column">
-                    {{{ sidepreblocks }}}
-                </section>
+                    <section data-region="blocks-column">
+                        {{{ sidepreblocks }}}
+                    </section>
                 {{/hasblocks}}
             </div>
         </div>
@@ -83,11 +83,293 @@
     </div>
 </footer>
 
+
 </body>
 </html>
 {{#js}}
-M.util.js_pending('theme_space/loader');
-require(['theme_space/loader'], function() {
-  M.util.js_complete('theme_space/loader');
-});
+
+    M.util.js_pending('theme_space/loader');
+    require(['theme_space/loader'], function() {
+    M.util.js_complete('theme_space/loader');
+    });
+
+    require(['jquery'], function($) {
+    $("#page-footer").attr('style', 'background-color: red !important;');
+    })
+
+
 {{/js}}
+
+<script>
+
+    window.addEventListener("load", function(){
+        $( ".vjs-play-control" ).after('<div id="listen_counter">2</div>');
+        $( ".vjs-progress-control" ).before('<div id="stop-skip"></div>');
+    });
+
+
+    let forms = document.getElementsByTagName("form");
+    for(let i = 0; i < forms.length; i++){
+        forms[i].setAttribute("spellcheck", "false");
+        forms[i].setAttribute("autocomplete", "off");
+    }
+
+    let inputs = document.getElementsByTagName("input");
+    for(let i = 0; i < inputs.length; i++){
+        inputs[i].setAttribute("spellcheck", "false");
+        inputs[i].setAttribute("data-gramm", "false");
+        inputs[i].setAttribute("autocomplete", "new-password");
+
+    }
+
+    let play_counters = [];
+
+    $('audio,video').each(function( index ) {
+
+        $(this).on('play', function (e) {
+            $( ".vjs-play-control" ).css("visibility", "hidden");
+        });
+
+        play_counters[index] = 2;
+
+        $(this).on('ended', function (e) {
+
+            $( ".vjs-play-control" ).css("visibility", "visible");
+
+            play_counters[index]--;
+
+            $(this).closest(".video-js").find("#listen_counter").html(play_counters[index]);
+
+            if(play_counters[index] === 0) {
+
+                $(this).closest(".video-js").find(".vjs-play-control" ).css("visibility", "hidden");
+            }
+        });
+
+    });
+
+
+
+
+
+
+</script>
+
+<!--OTHER WATUPRO SCRIPT-->
+
+<!--<script>-->
+
+<!--    // disable F5-->
+
+<!--    document.onkeydown = function()-->
+<!--    {-->
+<!--        switch (event.keyCode)-->
+<!--        {-->
+<!--            case 116 : //F5 button-->
+<!--                event.returnValue = false;-->
+<!--                event.keyCode = 0;-->
+<!--                return false;-->
+<!--            case 82 : //R button-->
+<!--                if (event.ctrlKey)-->
+<!--                {-->
+<!--                    event.returnValue = false;-->
+<!--                    event.keyCode = 0;-->
+<!--                    return false;-->
+<!--                }-->
+<!--        }-->
+<!--    };-->
+
+<!--    // Right click-->
+
+<!--    $(document).bind("contextmenu",function(e){-->
+<!--        return false;-->
+<!--    });-->
+
+<!--    // Cut Copy Paste-->
+
+<!--    $(':input').bind("cut copy paste",function(e) {-->
+<!--        e.preventDefault();-->
+<!--    });-->
+
+<!--    // Leave Screen-->
+
+<!--    let exam = 'dead';-->
+
+<!--    function exam_live() {-->
+
+<!--        if($('#timerDiv').is(":visible")) {-->
+<!--            $('#timer-box').show();-->
+<!--            exam = 'live';-->
+
+<!--        } else {-->
+<!--            $('#timer-box').hide();-->
+<!--            exam = 'dead';-->
+<!--        }-->
+
+<!--    }-->
+
+<!--    exam_live();-->
+
+<!--    $('#InitializeTimerButton').on("click", function(e) {-->
+<!--        exam_live();-->
+<!--    });-->
+
+
+<!--    $('#leave-confirm').on("click", function(e) {-->
+<!--        $('#warning-1-modal').hide();-->
+<!--    });-->
+
+<!--    let time_left = 0;-->
+<!--    let time_total = 0;-->
+<!--    let occasions = 0;-->
+<!--    let state = 'focus';-->
+<!--    let msg1 = null;-->
+<!--    let msg2 = null;-->
+
+<!--    $(document).on("mouseleave", function(e) {-->
+
+<!--        state = 'blur';-->
+
+<!--        if(exam === 'live') {-->
+
+<!--            msg1 = setTimeout(function () {-->
+
+<!--                if (state === 'blur') {-->
+
+<!--                    if($('#warning-2-modal').is(":hidden")) {-->
+<!--                        $('#warning-1-modal').fadeIn();-->
+<!--                    }-->
+
+<!--                    msg2 = setTimeout(function () {-->
+
+<!--                        if (state === 'blur') {-->
+
+<!--                            time_left = $.now();-->
+
+<!--                            $('#warning-1-modal').hide();-->
+<!--                            $('#warning-2-modal').fadeIn();-->
+
+<!--                        }-->
+
+
+<!--                    }, 3000);-->
+
+<!--                }-->
+
+<!--            }, 3000);-->
+
+<!--        }-->
+
+<!--    });-->
+
+<!--    $(document).on("mouseenter", function(e) {-->
+<!--        state = 'focus';-->
+<!--        clearInterval(msg1);-->
+<!--        clearInterval(msg2);-->
+<!--    });-->
+
+<!--    $(window).on("focus", function(e) {-->
+<!--        state = 'focus';-->
+<!--        clearInterval(msg1);-->
+<!--        clearInterval(msg2);-->
+<!--    });-->
+
+<!--    $('#mb-confirm').on("click", function(e) {-->
+
+<!--        time_total += ($.now() - time_left);-->
+<!--        occasions++;-->
+
+<!--        console.log(Math.round((time_total / 1000)));-->
+
+<!--        $('#warning-2-modal').hide();-->
+
+<!--    });-->
+
+<!--    $('#action-button').on("click", function() {-->
+
+<!--        exam = 'dead';-->
+
+<!--        updateCookie();-->
+
+<!--        if(occasions) {-->
+
+<!--            if(!sample) {-->
+<!--                send_mail(Math.round((time_total / 1000)));-->
+<!--            }-->
+
+<!--        }-->
+<!--    });-->
+
+<!--    function updateCookie() {-->
+<!--        var time = Math.floor(Date.now() / 1000);-->
+<!--        document.cookie = "examCompleted="+time+"; expires=0; path=/";-->
+<!--    }-->
+
+<!--    function send_mail(time_total) {-->
+
+<!--        let centre = "<?php echo $centre ?>";-->
+<!--        let candidate = "<?php echo $candidate ?>";-->
+<!--        let exam = "<?php echo $ga_exam ?>";-->
+
+<!--        $.ajax({-->
+<!--            url: "https://ark-gatehouseawards.org/web/exam_warning",-->
+<!--            type: "post",-->
+<!--            data: {-->
+<!--                occasions: occasions,-->
+<!--                time: time_total,-->
+<!--                candidate: candidate,-->
+<!--                dob: $("input[name='watupro_taker_phone']").val(),-->
+<!--                exam: exam,-->
+<!--                centre: centre-->
+<!--            },-->
+<!--        });-->
+
+<!--    }-->
+<!--    $(window).on("unload", function(e) {-->
+<!--        updateCookie();-->
+<!--    });-->
+
+<!--    $('textarea').focus();-->
+
+<!--    $('.x-navbar-wrap .x-container').append('<img id="exam-classic-logo" src="https://www.gatehouseawards.org/wp-content/uploads/Classic-Logo-Trans-1.png" />');-->
+
+<!--    $('#timeNag').contents().filter(function(){-->
+<!--        return this.nodeType === 3;-->
+<!--    }).remove();-->
+
+<!--    $('#timer-box').prepend( $('#timerDiv') );-->
+
+<!--    let dob_input = $("input[name='watupro_taker_phone']:visible");-->
+
+<!--    dob_input.attr("placeholder", "dd-mm-yyyy");-->
+
+
+<!--    if($('.watupro-ask-for-contact').is(":visible")) {-->
+
+<!--        $('.watupro-contact-field').val('');-->
+<!--    }-->
+
+<!--    $(".x-brand").removeAttr("href");-->
+
+
+<!--    // LAST-->
+
+<!--    new Cleave(dob_input, {-->
+<!--        date: true,-->
+<!--        delimiter: '-',-->
+<!--        datePattern: ['d', 'm', 'Y']-->
+<!--    });-->
+
+<!--    flatpickr(dob_input,{-->
+<!--        dateFormat: 'd-m-Y',-->
+<!--        allowInput: true,-->
+<!--        defaultDate: '01-01-1990',-->
+<!--    });-->
+
+
+<!--    if($('.watupro-ask-for-contact').is(":visible")) {-->
+
+<!--        $('.watupro-contact-field').val('');-->
+
+<!--    }-->
+<!--</script>-->
