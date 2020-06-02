@@ -23,7 +23,7 @@
     * sitename - The name of the site
     * output - The core renderer for the page
 
-      Example context (json):
+      example context (json):
     {
         "sitename": "Moodle",
         "output": {
@@ -83,6 +83,29 @@
     </div>
 </footer>
 
+<!-- Modal -->
+<div class="modal fade custom-modal" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="warningModalLabel" aria-hidden="true">
+    <div class="modal-dialog p-5" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+
+                <div class="modal-robot"></div>
+
+                <h4 class="font-weight-light">
+                    Don't drift off into space!
+                </h4>
+                <div class="font-weight-bold display-4 my-4 py-2">
+                    PLEASE STAY ON THE EXAM PAGE
+                </div>
+
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Woops sorry!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>
@@ -141,228 +164,43 @@
 
     });
 
+    // Leave Screen
 
+    let count = 0;
+    let exam = 'live';
+    let state = 'focus';
+    let msg1 = null;
+
+    $(document).on("mouseleave", function(e) {
+
+        state = 'blur';
+
+        if(exam === 'live') {
+
+            msg1 = setTimeout(function () {
+
+                if (state === 'blur' && count === 0) {
+
+                    $('#warningModal').modal('show')
+                    count++;
+                }
+
+            }, 6000);
+        }
+    });
+
+    $(document).on("mouseenter", function(e) {
+        state = 'focus';
+        clearInterval(msg1);
+    });
+
+    $(window).on("focus", function(e) {
+        state = 'focus';
+        clearInterval(msg1);
+    });
 
 
 
 
 </script>
 
-<!--OTHER WATUPRO SCRIPT-->
-
-<!--<script>-->
-
-<!--    // disable F5-->
-
-<!--    document.onkeydown = function()-->
-<!--    {-->
-<!--        switch (event.keyCode)-->
-<!--        {-->
-<!--            case 116 : //F5 button-->
-<!--                event.returnValue = false;-->
-<!--                event.keyCode = 0;-->
-<!--                return false;-->
-<!--            case 82 : //R button-->
-<!--                if (event.ctrlKey)-->
-<!--                {-->
-<!--                    event.returnValue = false;-->
-<!--                    event.keyCode = 0;-->
-<!--                    return false;-->
-<!--                }-->
-<!--        }-->
-<!--    };-->
-
-<!--    // Right click-->
-
-<!--    $(document).bind("contextmenu",function(e){-->
-<!--        return false;-->
-<!--    });-->
-
-<!--    // Cut Copy Paste-->
-
-<!--    $(':input').bind("cut copy paste",function(e) {-->
-<!--        e.preventDefault();-->
-<!--    });-->
-
-<!--    // Leave Screen-->
-
-<!--    let exam = 'dead';-->
-
-<!--    function exam_live() {-->
-
-<!--        if($('#timerDiv').is(":visible")) {-->
-<!--            $('#timer-box').show();-->
-<!--            exam = 'live';-->
-
-<!--        } else {-->
-<!--            $('#timer-box').hide();-->
-<!--            exam = 'dead';-->
-<!--        }-->
-
-<!--    }-->
-
-<!--    exam_live();-->
-
-<!--    $('#InitializeTimerButton').on("click", function(e) {-->
-<!--        exam_live();-->
-<!--    });-->
-
-
-<!--    $('#leave-confirm').on("click", function(e) {-->
-<!--        $('#warning-1-modal').hide();-->
-<!--    });-->
-
-<!--    let time_left = 0;-->
-<!--    let time_total = 0;-->
-<!--    let occasions = 0;-->
-<!--    let state = 'focus';-->
-<!--    let msg1 = null;-->
-<!--    let msg2 = null;-->
-
-<!--    $(document).on("mouseleave", function(e) {-->
-
-<!--        state = 'blur';-->
-
-<!--        if(exam === 'live') {-->
-
-<!--            msg1 = setTimeout(function () {-->
-
-<!--                if (state === 'blur') {-->
-
-<!--                    if($('#warning-2-modal').is(":hidden")) {-->
-<!--                        $('#warning-1-modal').fadeIn();-->
-<!--                    }-->
-
-<!--                    msg2 = setTimeout(function () {-->
-
-<!--                        if (state === 'blur') {-->
-
-<!--                            time_left = $.now();-->
-
-<!--                            $('#warning-1-modal').hide();-->
-<!--                            $('#warning-2-modal').fadeIn();-->
-
-<!--                        }-->
-
-
-<!--                    }, 3000);-->
-
-<!--                }-->
-
-<!--            }, 3000);-->
-
-<!--        }-->
-
-<!--    });-->
-
-<!--    $(document).on("mouseenter", function(e) {-->
-<!--        state = 'focus';-->
-<!--        clearInterval(msg1);-->
-<!--        clearInterval(msg2);-->
-<!--    });-->
-
-<!--    $(window).on("focus", function(e) {-->
-<!--        state = 'focus';-->
-<!--        clearInterval(msg1);-->
-<!--        clearInterval(msg2);-->
-<!--    });-->
-
-<!--    $('#mb-confirm').on("click", function(e) {-->
-
-<!--        time_total += ($.now() - time_left);-->
-<!--        occasions++;-->
-
-<!--        console.log(Math.round((time_total / 1000)));-->
-
-<!--        $('#warning-2-modal').hide();-->
-
-<!--    });-->
-
-<!--    $('#action-button').on("click", function() {-->
-
-<!--        exam = 'dead';-->
-
-<!--        updateCookie();-->
-
-<!--        if(occasions) {-->
-
-<!--            if(!sample) {-->
-<!--                send_mail(Math.round((time_total / 1000)));-->
-<!--            }-->
-
-<!--        }-->
-<!--    });-->
-
-<!--    function updateCookie() {-->
-<!--        var time = Math.floor(Date.now() / 1000);-->
-<!--        document.cookie = "examCompleted="+time+"; expires=0; path=/";-->
-<!--    }-->
-
-<!--    function send_mail(time_total) {-->
-
-<!--        let centre = "<?php echo $centre ?>";-->
-<!--        let candidate = "<?php echo $candidate ?>";-->
-<!--        let exam = "<?php echo $ga_exam ?>";-->
-
-<!--        $.ajax({-->
-<!--            url: "https://ark-gatehouseawards.org/web/exam_warning",-->
-<!--            type: "post",-->
-<!--            data: {-->
-<!--                occasions: occasions,-->
-<!--                time: time_total,-->
-<!--                candidate: candidate,-->
-<!--                dob: $("input[name='watupro_taker_phone']").val(),-->
-<!--                exam: exam,-->
-<!--                centre: centre-->
-<!--            },-->
-<!--        });-->
-
-<!--    }-->
-<!--    $(window).on("unload", function(e) {-->
-<!--        updateCookie();-->
-<!--    });-->
-
-<!--    $('textarea').focus();-->
-
-<!--    $('.x-navbar-wrap .x-container').append('<img id="exam-classic-logo" src="https://www.gatehouseawards.org/wp-content/uploads/Classic-Logo-Trans-1.png" />');-->
-
-<!--    $('#timeNag').contents().filter(function(){-->
-<!--        return this.nodeType === 3;-->
-<!--    }).remove();-->
-
-<!--    $('#timer-box').prepend( $('#timerDiv') );-->
-
-<!--    let dob_input = $("input[name='watupro_taker_phone']:visible");-->
-
-<!--    dob_input.attr("placeholder", "dd-mm-yyyy");-->
-
-
-<!--    if($('.watupro-ask-for-contact').is(":visible")) {-->
-
-<!--        $('.watupro-contact-field').val('');-->
-<!--    }-->
-
-<!--    $(".x-brand").removeAttr("href");-->
-
-
-<!--    // LAST-->
-
-<!--    new Cleave(dob_input, {-->
-<!--        date: true,-->
-<!--        delimiter: '-',-->
-<!--        datePattern: ['d', 'm', 'Y']-->
-<!--    });-->
-
-<!--    flatpickr(dob_input,{-->
-<!--        dateFormat: 'd-m-Y',-->
-<!--        allowInput: true,-->
-<!--        defaultDate: '01-01-1990',-->
-<!--    });-->
-
-
-<!--    if($('.watupro-ask-for-contact').is(":visible")) {-->
-
-<!--        $('.watupro-contact-field').val('');-->
-
-<!--    }-->
-<!--</script>-->

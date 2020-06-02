@@ -84,6 +84,67 @@
     display: none;
   }
 
+  // MODAL
+
+  .moodle-dialogue {
+
+    text-align: center;
+
+    .moodle-dialogue-hd {
+      font-size: 1.6rem;
+      padding: 1rem !important;
+    }
+
+    form {
+
+      legend {
+        display: none;
+      }
+
+      #fitem_id_honestycheckmessage {
+
+        .col-md-3 {
+
+          &:after {
+            content: "";
+            position: absolute;
+            top: -90px;
+            left: -30px;
+            width: 140px;
+            height: 200px;
+            background:url([[pix:theme|cadets/Robot-clock]]);
+            background-size: cover;
+          }
+
+        }
+
+        .felement {
+
+          .form-control-static {
+            box-shadow: none;
+            font-size: 0.9rem;
+            color: #000;
+            background-color: $blue-100;
+
+            &:after {
+              content: "";
+              position: absolute;
+              top: 33px;
+              left: -55px;
+              border-top: 20px solid transparent;
+              border-right: 65px solid $blue-100;
+              border-bottom: 20px solid transparent;
+            }
+
+          }
+        }
+
+      }
+
+    }
+
+  }
+
 }
 
 // |--------------------------------------------------------------------------
@@ -149,6 +210,8 @@
             .content {
 
               .qtext {
+
+                font-size: 1.1rem;
 
                 // MEDIA PLAYER
 
@@ -367,4 +430,40 @@
 #page-mod-quiz-review .submitbtns {
   text-align:center;
   padding: 2em !important;
+}
+
+// |--------------------------------------------------------------------------
+// | CUSTOM MODAL
+// |--------------------------------------------------------------------------
+
+.custom-modal {
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &:focus {
+    box-shadow: none !important;
+  }
+
+  .modal-robot {
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: -27px;
+      left: -130px;
+      width: 160px;
+      height: 260px;
+      background:url([[pix:theme|cadets/Robot-modal]]);
+      background-size: cover;
+
+    }
+
+  }
+
+  button {
+    max-width: 50% !important;
+  }
+
 }
