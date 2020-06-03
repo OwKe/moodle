@@ -1071,11 +1071,11 @@ class core_renderer extends \core_renderer {
 
         // COURSE
 
-        $cmid = optional_param('cmid',  0, PARAM_INT);  // Couse Module ID.
-        $course_ID = $DB->get_field('course_modules', 'course', ['id' => $cmid], $strictness=IGNORE_MISSING);
-        $course_short_name = $DB->get_field('course', 'shortname', ['id' => $course_ID], $strictness=IGNORE_MISSING);
+//        $cmid = optional_param('cmid',  0, PARAM_INT);  // Couse Module ID.
+//        $course_ID = $DB->get_field('course_modules', 'course', ['id' => $cmid], $strictness=IGNORE_MISSING);
+//        $course_short_name = $DB->get_field('course', 'shortname', ['id' => $course_ID], $strictness=IGNORE_MISSING);
         
-        return html_writer::tag('h1', $course_short_name.' : '.$quiz_name);
+        return html_writer::tag('h1', $quiz_name);
 
     }
 
