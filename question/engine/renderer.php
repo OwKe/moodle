@@ -88,6 +88,20 @@ class core_question_renderer extends plugin_renderer_base {
             qtype_renderer $qtoutput, question_display_options $options, $number) {
 
         $output = '';
+
+        // ADD TASK TITLES ABOVE FIRST QUESTIONS.
+
+        global $DB;
+        $a_ID = optional_param('attempt',  0, PARAM_INT);  // Attempt ID.
+        $quiz_ID = $DB->get_field('quiz_attempts', 'quiz', ['id' => $a_ID], $strictness=IGNORE_MISSING);
+        $heading =  $DB->get_field('quiz_sections', 'heading', ['quizid' => $quiz_ID, 'firstslot' => $qa->get_slot()], $strictness=IGNORE_MISSING);
+
+        if(!empty($heading)) {
+            $output .= html_writer::tag('div',
+                html_writer::tag('h1', $heading),
+                array('class' => 'section-heading'));
+        }
+
         $output .= html_writer::start_tag('div', array(
             'id' => $qa->get_outer_question_div_unique_id(),
             'class' => implode(' ', array(

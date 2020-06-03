@@ -372,6 +372,7 @@ class mod_quiz_renderer extends plugin_renderer_base {
             $qnostring = 'questionnonav';
         } else {
             $qnostring = 'questionnonavinfo';
+            $classes[] = 'hide-infos';
         }
 
         $a = new stdClass();

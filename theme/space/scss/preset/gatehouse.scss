@@ -189,11 +189,30 @@
             display: inline-block;
           }
 
+          .section-heading {
+            background-color: $blue-200;
+            border-radius: 10px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            padding: 15px 40px;
+
+            h1 {
+              margin: 0;
+              font-weight: 900;
+            }
+          }
+
           .que {
 
             background-color: $blue-100;
             border-radius: 10px;
             padding: 30px 40px 60px;
+
+            &.informationitem {
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+
+            }
 
             .info {
 
@@ -354,6 +373,13 @@
                   font-size: 16px;
                   margin-bottom: 10px;
                   font-weight: 600;
+                }
+
+                .qnbutton {
+
+                  &.hide-infos {
+                    display: none;
+                  }
                 }
 
               }
