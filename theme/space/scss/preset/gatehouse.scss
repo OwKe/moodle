@@ -10,6 +10,53 @@
 }
 
 // |--------------------------------------------------------------------------
+// | DASHBOARD
+// |--------------------------------------------------------------------------
+
+#page-my-index {
+
+  .card {
+
+    text-align: center;
+
+    .card-img-top, .card-img {
+      width: auto;
+      margin: 0;
+      height: 135px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .c-course-box-content, .course-info-container {
+
+      padding: 25px 20px 0;
+      text-align: center;
+
+      .course-box-title {
+
+        margin-bottom: 1rem;
+
+      }
+
+      a {
+        font-size: 22px;
+        font-weight: 900;
+        margin-top: 0 !important;
+      }
+
+      .course-box-desc {
+        margin-bottom: 0;
+        height: 150px;
+        padding: 0;
+      }
+
+    }
+
+  }
+}
+
+
+// |--------------------------------------------------------------------------
 // | LOGIN SIGN UP
 // |--------------------------------------------------------------------------
 
@@ -84,7 +131,7 @@
     display: none;
   }
   .quizattempt {
-    text-align: center !important;
+    text-align: center;
     padding-top: 0 !important;
   }
 
@@ -151,6 +198,20 @@
 
 }
 
+.GA-NAVBAR {
+  padding: 25px 30px 0;
+  align-items: start;
+
+  .logo {
+    img {
+      width: 235px;
+    }
+    .main {
+      width: 265px;
+    }
+  }
+}
+
 // |--------------------------------------------------------------------------
 // | QUIZ ATTEMPT
 // |--------------------------------------------------------------------------
@@ -163,17 +224,7 @@
 
     .navbar {
 
-      padding: 25px 30px 0;
-      align-items: start;
-
-      .logo {
-        img {
-          width: 235px;
-        }
-        .main {
-          width: 265px;
-        }
-      }
+      @extend .GA-NAVBAR;
 
     }
 
@@ -335,6 +386,18 @@
               border: none !important;
             }
           }
+
+          .submitbtns {
+
+            .singlebutton {
+
+              button {
+                @extend .btn-danger
+              }
+
+            }
+
+          }
         }
       }
 
@@ -391,7 +454,7 @@
               .othernav {
 
                 .endtestlink {
-                  margin: 1rem 0;
+                  display: none;
                 }
 
                 #quiz-timer {
@@ -461,6 +524,25 @@
   text-align:center;
   padding: 2em !important;
 }
+
+// |--------------------------------------------------------------------------
+// | QUIZ REVIEW
+// |--------------------------------------------------------------------------
+
+#page-mod-quiz-review {
+
+  &.category-2 {
+
+    .navbar {
+
+      @extend .GA-NAVBAR;
+
+    }
+  }
+
+}
+
+
 
 // |--------------------------------------------------------------------------
 // | CUSTOM MODAL

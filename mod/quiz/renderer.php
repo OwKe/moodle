@@ -493,7 +493,7 @@ class mod_quiz_renderer extends plugin_renderer_base {
         }
 
         $navmethod = $attemptobj->get_quiz()->navmethod;
-        $output .= $this->attempt_navigation_buttons($page, $attemptobj->is_last_page($page), $navmethod);
+        $output .= $this->attempt_navigation_buttons($page, $attemptobj->is_last_page($page), $navmethod, $attemptobj);
 
         // Some hidden fields to trach what is going on.
         $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'attempt',
