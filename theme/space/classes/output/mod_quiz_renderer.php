@@ -3,6 +3,7 @@
 namespace theme_space\output;
 use confirm_action;
 use html_writer;
+use mod_quiz_display_options;
 use moodle_url;
 use quiz_attempt;
 use single_button;
@@ -36,6 +37,8 @@ class mod_quiz_renderer extends \mod_quiz_renderer {
         return $output;
     }
 
+
+
     public function skipSummaryAndFinishButton($attemptobj) {
         $output = '';
 
@@ -58,6 +61,35 @@ class mod_quiz_renderer extends \mod_quiz_renderer {
 
         $output .= $this->render($button);
 
+        return $output;
+    }
+
+    // OVERRIDE - CHANGE THE CONTENT OF THE REVIEW PAGE
+
+    public function review_page(quiz_attempt $attemptobj, $slots, $page, $showall, $lastpage, mod_quiz_display_options $displayoptions, $summarydata) {
+
+        $output = '';
+        $output .= $this->header();
+
+        $category = $attemptobj->get_course()->category;
+
+        // CADETS SHOW SIMPLE PAGE
+
+        if($category == 2) {
+
+            $data = (object) [
+                'title' => $attemptobj->get_quiz_name(),
+            ];
+
+            $output .= $this->render_from_template('theme_space/simple-review', $data);
+
+        } else {
+            $output .= $this->review_summary_table($summarydata, $page);
+            $output .= $this->review_form($page, $showall, $displayoptions, $this->questions($attemptobj, true, $slots, $page, $showall, $displayoptions), $attemptobj);
+        }
+
+        $output .= $this->review_next_navigation($attemptobj, $page, $lastpage, $showall);
+        $output .= $this->footer();
         return $output;
     }
 }

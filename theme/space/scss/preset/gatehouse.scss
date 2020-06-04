@@ -534,10 +534,48 @@
   &.category-2 {
 
     .navbar {
-
       @extend .GA-NAVBAR;
+    }
+
+    #page-header {
+      display: none;
+    }
+
+    section {
+
+      // MAIN AREA
+
+      &#region-main {
+
+        width: 100%;
+        text-align: center;
+
+        .card {
+          background-color: white;
+
+          .simple-content {
+            background-color: $blue-200;
+            border-radius: 10px;
+            padding: 5rem 10rem;
+          }
+
+        }
+
+      }
+
+      // SIDEBAR
+
+      &:not(#region-main) {
+        display: none;
+        width: 0;
+
+      }
 
     }
+  }
+
+  footer {
+    background-color: #fff !important;
   }
 
 }
