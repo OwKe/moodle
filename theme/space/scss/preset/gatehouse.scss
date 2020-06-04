@@ -554,9 +554,24 @@
           background-color: white;
 
           .simple-content {
+
             background-color: $blue-200;
             border-radius: 10px;
             padding: 5rem 10rem;
+            position: relative;
+
+            .robot {
+              &:after {
+                content: "";
+                position: absolute;
+                bottom: -23px;
+                right: -60px;
+                width: 140px;
+                height: 250px;
+                background:url([[pix:theme|cadets/Robot-review]]);
+                background-size: cover;
+              }
+            }
           }
 
         }
