@@ -77,8 +77,17 @@ class mod_quiz_renderer extends \mod_quiz_renderer {
 
         if($category == 2) {
 
+            $title = $attemptobj->get_quiz_name();
+
+            if (strpos(strtolower($title), 'sample') !== false) {
+                $sample = true;
+            } else {
+                $sample = false;
+            }
+
             $data = (object) [
-                'title' => $attemptobj->get_quiz_name(),
+                'title' => $title,
+                'sample' => $sample,
             ];
 
             $output .= $this->render_from_template('theme_space/simple-review', $data);

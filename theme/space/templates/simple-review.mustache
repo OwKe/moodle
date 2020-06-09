@@ -6,9 +6,15 @@
 
                 <h1 class="display-3 font-weight-bold">Congratulations!</h1>
 
-                <p class="mt-5 mb-3 display-5">You have completed the {{ title }} practice exam.</p>
+                {{#sample}}
+                    <p class="mt-5 mb-3 display-5">You have completed the {{ title }} practice exam.</p>
+                    <p>We hope you had fun and to see you soon during a live exam!</p>
+                {{/sample}}
 
-                <p>We hope you had fun and to see you soon during a live exam!</p>
+                {{^sample}}
+                    <p class="mt-5 mb-3 display-5">Thank you for completing the {{ title }}.</p>
+                    <p>We will send your results to your school when they are ready.</p>
+                {{/sample}}
 
                 <div class="robot"></div>
 
