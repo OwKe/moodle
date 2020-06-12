@@ -116,12 +116,101 @@
     });
 {{/js}}
 
+
 <script>
 
-    window.addEventListener("load", function(){
-        $( ".vjs-play-control" ).after('<div id="listen_counter">1</div>');
-        $( ".vjs-progress-control" ).before('<div id="stop-skip"></div>');
+    //
+
+    const av = $('audio,video');
+
+    let ltrc_array = {};
+    let updated_array = {};
+    let default_play_count = 1
+
+    // ADD EACH AUDIO ITEM TO PAGE OBJECT IF IT DOSENT ALREADY EXIST
+
+    av.each(function( index ) {
+        let title = $(this).attr("title");
+        if(jQuery.inArray(title, ltrc_array) === -1) {
+            ltrc_array[title] = default_play_count;
+        }
     });
+
+    let existing_cookie = Cookies.get('ltrc');
+
+    // IF COOKIE ALREADY EXISTS MERGE CURRENT OBJECT WITH THE NEW ONE FROM THIS PAGE
+
+    if(existing_cookie) {
+        updated_array = $.extend( ltrc_array, JSON.parse(existing_cookie) )
+        Cookies.set('ltrc', JSON.stringify(updated_array), { secure: true, path: ''  });
+    }
+
+    // IF IT DOSENT EXIST CREATE ONE USING THE NEW CREATED OBJECT
+
+    else {
+        Cookies.set('ltrc', JSON.stringify(ltrc_array), { secure: true, path: ''  });
+    }
+
+    let up_to_date_cookie = JSON.parse(Cookies.get('ltrc'))
+
+    // ATTACH LISTEN COUNT AND STOP SKIP ELEMENTS + HIDE PLAY BUTTON IN NEEDED
+    // Have to wait until after the vjs player has loaded before we can attached the elements.
+
+    setTimeout(function(){
+
+        av.each(function( index ) {
+
+            let title = $(this).attr("title");
+
+            let play_count = up_to_date_cookie[title];
+            if(play_count === 0) {
+                $(this).closest(".video-js").find(".vjs-play-control" ).css("visibility", "hidden");
+            }
+
+            $(this).closest(".video-js").find(".vjs-play-control").after('<div id="listen_counter">'+play_count+'</div>');
+            $(this).closest(".video-js").find(".vjs-progress-control").before('<div id="stop-skip"></div>');
+        });
+
+    }, 1500);
+
+    av.each(function( index ) {
+
+        let title = $(this).attr("title");
+
+        // ON PLAY HIDE ALL PLAY BUTTONS ON PAGE
+
+        $(this).on('play', function (e) {
+            $( ".vjs-play-control" ).css("visibility", "hidden");
+        });
+
+        // WHEN RECORDING HAS FINISHED
+
+        $(this).on('ended', function (e) {
+
+            // SHOW PLAY CONTROL
+
+            $( ".vjs-play-control" ).css("visibility", "visible");
+
+            // UPDATE COOKIE
+
+            let play_count = up_to_date_cookie[title] -1;
+            up_to_date_cookie[title] = play_count;
+            Cookies.set('ltrc', JSON.stringify(up_to_date_cookie), { secure: true, path: ''  });
+
+            // UPDATE DISPLAYED PLAY COUNTER
+
+            $(this).closest(".video-js").find("#listen_counter").html(play_count);
+
+            // HIDE PLAY CONTROL
+
+            if(play_count === 0) {
+                $(this).closest(".video-js").find(".vjs-play-control" ).css("visibility", "hidden");
+            }
+
+        });
+
+    });
+
 
 
     let forms = document.getElementsByTagName("form");
@@ -137,32 +226,6 @@
         inputs[i].setAttribute("autocomplete", "new-password");
 
     }
-
-    let play_counters = [];
-
-    $('audio,video').each(function( index ) {
-
-        $(this).on('play', function (e) {
-            $( ".vjs-play-control" ).css("visibility", "hidden");
-        });
-
-        play_counters[index] = 1;
-
-        $(this).on('ended', function (e) {
-
-            $( ".vjs-play-control" ).css("visibility", "visible");
-
-            play_counters[index]--;
-
-            $(this).closest(".video-js").find("#listen_counter").html(play_counters[index]);
-
-            if(play_counters[index] === 0) {
-
-                $(this).closest(".video-js").find(".vjs-play-control" ).css("visibility", "hidden");
-            }
-        });
-
-    });
 
     // Leave Screen
 
@@ -181,7 +244,7 @@
 
                 if (state === 'blur' && count === 0) {
 
-                    $('#warningModal').modal('show')
+                    // $('#warningModal').modal('show')
                     count++;
                 }
 
