@@ -48,6 +48,11 @@ $cmid          = optional_param('cmid', null, PARAM_INT);
 
 $attemptobj = quiz_create_attempt_handling_errors($attemptid, $cmid);
 
+// OWEN - FIX for previous button submitting the attempt.
+if(!$next && !$previous) {
+    $finishattempt = 1;
+}
+
 // Set $nexturl now.
 if ($next) {
     $page = $nextpage;

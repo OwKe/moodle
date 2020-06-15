@@ -19,14 +19,14 @@ class mod_quiz_renderer extends \mod_quiz_renderer {
         $output = '';
 
         $output .= html_writer::start_tag('div', array('class' => 'submitbtns'));
+
         if ($page > 0 && $navmethod == 'free') {
             $output .= html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'previous',
                 'value' => get_string('navigateprevious', 'quiz'), 'class' => 'mod_quiz-prev-nav btn btn-secondary'));
         }
+
         if ($lastpage) {
-
             $output .= $this->skipSummaryAndFinishButton($attemptobj);
-
         } else {
             $output .= html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'next',
                 'value' => get_string('navigatenext', 'quiz'), 'class' => 'mod_quiz-next-nav btn btn-primary'));
@@ -38,14 +38,12 @@ class mod_quiz_renderer extends \mod_quiz_renderer {
     }
 
 
-
     public function skipSummaryAndFinishButton($attemptobj) {
         $output = '';
 
         // Finish attempt button.
         $options = array(
             'attempt' => $attemptobj->get_attemptid(),
-            'finishattempt' => 1,
             'timeup' => 0,
             'slots' => '',
             'cmid' => $attemptobj->get_cmid(),
