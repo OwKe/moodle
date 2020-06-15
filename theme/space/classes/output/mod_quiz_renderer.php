@@ -48,6 +48,7 @@ class mod_quiz_renderer extends \mod_quiz_renderer {
             'slots' => '',
             'cmid' => $attemptobj->get_cmid(),
             'sesskey' => sesskey(),
+            'finito' => 1
         );
 
         $button = new single_button(new moodle_url($attemptobj->processattempt_url(), $options), get_string('submitallandfinish', 'quiz'));
